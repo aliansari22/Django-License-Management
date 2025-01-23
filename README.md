@@ -53,7 +53,7 @@ LicenseManagement/
 
    ```bash
    git clone https://github.com/aliansari22/Django-License-Management.git
-   cd Django-License-Management/LicenseManagement
+   cd Django-License-Management
    ```
 
 2. Create a virtual environment and activate it:
