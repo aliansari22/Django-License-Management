@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Trading Locally - Profile Information" %}{% endblock %}
+
+{% block content %}
+    
+    <div class="container">
+        <div class="card animate-on-scroll">
+            <h2 class="section-title" style="text-align: center;">{% trans "Profile Information" %}</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <p>
+					<button class="btn" type="submit">{% trans "Submit Changes" %}</button>
+					<p></p>
+                    <label for="referral_link">{% trans "Referral Link" %}:</label>
+                    <a style="font-size: 25px; color: blue;" href="{{ profile.referral_link }}" id="referralLink">{{ profile.referral_link }}</a>
+                    
+                    <button type="button" class="btn" onclick="copyReferralLink()" style="background-color: blue; margin-right: 20px; margin-left: 20px;">{% trans "Copy Link" %}</button>
+                    <p></p>
+                    <label for="account_number">{% trans "Account Number" %}</label>
+                    <input type="text" name="account_number" value="{{ profile.account_number }}" required>
+                    <p></p>
+                    <label for="phone_number">{% trans "Phone Number" %}:</label>
+                    <input type="text" name="phone_number" value="{{ profile.phone_number }}" required>
+                   <p></p>
+                   <label for="ea_username">{% trans "EA Username" %}:</label>
+                    <input type="text" name="ea_username" value="{{ profile.ea_username }}" readonly>
+                   <p></p>
+                   <label for="ea_password">{% trans "EA Password" %}:</label>
+                    <input type="text" name="ea_password" value="{{ profile.ea_password }}" required>
+                   <p></p>
+                    <label for="timezone">{% trans "Timezone" %}:</label>
+                    <select name="timezone" required>
+                        {% for tz in timezones %}
+                            <option value="{{ tz }}" {% if profile.timezone == tz %}selected{% endif %}>{{ tz }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    
+                    
+                   
+                </p>
+                
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function copyReferralLink() {
+            var referralLink = document.getElementById("referralLink").href;
+            navigator.clipboard.writeText(referralLink).then(function() {
+                alert("{% trans 'Referral link copied to clipboard!' %}");
+            }, function(err) {
+                console.error('Error copying text: ', err);
+            });
+        }
+    </script>
+{% endblock %}

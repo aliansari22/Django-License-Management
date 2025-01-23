@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load i18n %}  {# Load i18n tag to enable translation #}
+
+{% block title %}Trading Locally - {% trans 'Send Private Message' %}{% endblock %}  {# Wrap the title in trans tag for translation #}
+
+{% block content %}
+    
+<div class="container"> 
+
+<div class="card animate-on-scroll"> 
+<h2 class="section-title" style="text-align: center;">{% trans "Send Private Message" %}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="message">{% trans 'Message' %}:</label>  {# Translate the label for message input #}
+        <input type="text" id="message" name="message" required>
+    </div>
+    <div>
+        <label for="recipients">{% trans 'Recipients (comma-separated usernames)' %}:</label>  {# Translate the label for recipients input #}
+        <input type="text" id="recipients" name="recipients" required>
+    </div>
+    <div>
+        <label for="expiry_date">{% trans 'Expiry Date' %}:</label>  {# Translate the label for expiry date input #}
+        <input type="datetime-local" id="expiry_date" name="expiry_date" required>
+    </div>
+    <p></p>
+    <button type="submit" class="btn">{% trans 'Send' %}</button>  {# Translate the submit button label #}
+</form>
+</div>
+</div>
+{% endblock %}

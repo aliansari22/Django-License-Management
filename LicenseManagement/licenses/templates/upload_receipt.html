@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% block title %}{% trans "Trading Locally - Upload Receipt" %}{% endblock %}  {# Translate the title #}
+{% block content %}
+  <h2>{% trans "Upload Receipt for" %} {{ product.name }}</h2>  {# Translate the heading and concatenate with product name #}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>{% trans "Product:" %} {{ product.name }}</p>  {# Translate the label "Product:" and concatenate with product name #}
+    <button type="submit">{% trans "Upload" %}</button>  {# Translate the button label "Upload" #}
+  </form>
+{% endblock %}

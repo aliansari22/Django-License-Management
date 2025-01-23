@@ -1,0 +1,190 @@
+<!-- settings.html -->
+
+{% extends 'base.html' %}
+{% load i18n %}
+{% load custom_filters %}
+
+{% block title %}{% trans 'Trading Locally - Settings' %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card animate-on-scroll">
+        <h2 class="section-title" style="text-align: center;">{% trans 'Account Settings' %}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <table class="table-responsive">
+                <thead>
+                    <tr>
+                        <th>{% trans 'Field' %}</th>
+                        <th style="width: 250px;">{% trans 'Remaining %' %}</th>
+                        <th style="width: 250px;">{% trans 'Remaining $' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Daily Drawdown -->
+                    <tr>
+                        <td>
+                            <label for="{{ form.daily_drawdown.id_for_label }}">{% trans 'Daily Drawdown (%)' %}:</label>
+                            {{ form.daily_drawdown }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.daily_drawdown %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.daily_drawdown %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    <!-- Daily Trade Limit -->
+                    <tr>
+                        <td>
+                            <label for="{{ form.daily_trade_limit.id_for_label }}">{% trans 'Daily Trade Limit (number of trades)' %}:</label>
+                            {{ form.daily_trade_limit }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.daily_trade_limit %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.daily_trade_limit %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">-</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    <!-- Daily Profit Limit -->
+                    <tr>
+                        <td>
+                            <label for="{{ form.daily_profit_limit.id_for_label }}">{% trans 'Daily Profit Limit (%)' %}:</label>
+                            {{ form.daily_profit_limit }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.daily_profit_limit %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.daily_profit_limit %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    <!-- Monthly Drawdown -->
+                    <tr>
+                        <td>
+                            <label for="{{ form.monthly_drawdown.id_for_label }}">{% trans 'Monthly Drawdown (%)' %}:</label>
+                            {{ form.monthly_drawdown }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.monthly_drawdown %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.monthly_drawdown %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    <!-- Monthly Profit Limit -->
+                    <tr>
+                        <td>
+                            <label for="{{ form.monthly_profit_limit.id_for_label }}">{% trans 'Monthly Profit Limit (%)' %}:</label>
+                            {{ form.monthly_profit_limit }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.monthly_profit_limit %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.monthly_profit_limit %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    <!-- Trade Delays -->
+                    <tr>
+                        <td>
+                            <label for="{{ form.trade_delays.id_for_label }}">{% trans 'Trade Delays (minutes)' %}:</label>
+                            {{ form.trade_delays }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.trade_delays %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">{{ remaining_value }}</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.trade_delays %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">-</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    
+                    <!-- Periodic Limit -->
+                    
+                    <tr>
+                        <td>
+                            <label for="{{ form.trade_delays.id_for_label }}">{% trans 'Update Limit (days)' %}:</label>
+                            {{ form.update_periodic_limit }}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_1.trade_delays %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">-</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% with remaining_value=remaining_values_2.trade_delays %}
+                                {% if remaining_value is not None %}
+                                    <span class="form-text text-muted">-</span>
+                                {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+			<p></p>
+            {% if not readonly %}
+                <div class="form-group row">
+                    <div class="col-12">
+                        <input type="submit" value="{% trans 'Save Changes' %}" class="btn btn-primary">
+                    </div>
+                </div>
+            {% endif %}
+        </form>
+        {% if readonly %}
+            <p>{% blocktrans %}You cannot update your settings until{% endblocktrans %} {{ next_allowed_date }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

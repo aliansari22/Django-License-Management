@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Trading Locally - {% trans "Performance" %}{% endblock %}
+
+{% block content %}
+
+
+
+<div class="card animate-on-scroll">
+<h2 class="section-title" style="text-align: center;">{% trans "Performance" %}</h2>
+
+    <div class="inline-elements">
+        <label for="report-select">{% trans "Report:" %}</label>
+        <select id="report-select">
+            <option value="" disabled selected>{% trans "Select a report" %}</option>
+            {% for report_id in name_of_reports %}
+                <option value="{{ report_id }}">{{ report_id }}</option>
+            {% endfor %}
+        </select>
+        <label for="report-type-select">{% trans "Chart Type:" %}</label>
+        <select id="report-type-select">
+            <option value="" disabled selected>{% trans "Select a chart type" %}</option>
+            
+            <option value="bar_chart/hourly">{% trans "Hourly Bar Chart" %}</option>
+            <option value="bar_chart/weekday">{% trans "Week Day Bar Chart" %}</option>
+            <option value="bubble_chart/hourly">{% trans "Hourly Bubble Chart" %}</option>
+            <option value="bubble_chart/weekday">{% trans "Week Day Bubble Chart" %}</option>
+        </select>
+        <a id="show-report-btn" href="#" class="btn" onclick="showReport()">{% trans "Show" %}</a>
+    </div>
+
+
+
+
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    function showReport() {
+        var reportSelect = document.getElementById('report-select');
+        var reportTypeSelect = document.getElementById('report-type-select');
+        var selectedReportId = reportSelect.value;
+        var selectedReportType = reportTypeSelect.value;
+        var userId = '{{ user_id }}';
+
+        if (selectedReportId && selectedReportType) {
+            var showReportBtn = document.getElementById('show-report-btn');
+            showReportBtn.href = `/performance/${userId}/report/${selectedReportId}/${selectedReportType}`;
+        } else {
+            alert('Please select both a report and a report type.');
+        }
+    }
+</script>
+
+{% endblock %}

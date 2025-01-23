@@ -1,0 +1,1175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-11 10:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: licenses/templates/about.html:4 licenses/templates/about.html:10
+msgid "About Us"
+msgstr "درباره ما"
+
+#: licenses/templates/active_licenses.html:6
+msgid "Trading Locally - Active Licenses"
+msgstr "Trading Locally - لایسنس‌های فعال"
+
+#: licenses/templates/active_licenses.html:12
+#: licenses/templates/customer_panel.html:19
+#: licenses/templates/customer_panel_sidebar.html:10
+#: licenses/templates/sidebar.html:66
+msgid "Active Licenses"
+msgstr "لایسنس‌های فعال"
+
+#: licenses/templates/active_licenses.html:16
+#: licenses/templates/customer_profile.html:15
+#: licenses/templates/list_of_products.html:22
+#: licenses/templates/list_of_requests.html:20 licenses/templates/shop.html:16
+msgid "Product Name"
+msgstr "نام محصول"
+
+#: licenses/templates/active_licenses.html:17
+#: licenses/templates/active_licenses.html:27
+msgid "Request Compilation"
+msgstr "درخواست کامپایل"
+
+#: licenses/templates/active_licenses.html:18
+msgid "Requested"
+msgstr "درخواست شده"
+
+#: licenses/templates/active_licenses.html:19
+msgid "Download Link"
+msgstr "لینک دانلود"
+
+#: licenses/templates/active_licenses.html:20
+#: licenses/templates/customer_profile.html:17
+#: licenses/templates/send_private_message.html:24
+#: licenses/templates/send_public_message.html:18
+msgid "Expiry Date"
+msgstr "تاریخ انقضاء"
+
+#: licenses/templates/active_licenses.html:30
+msgid "Yes"
+msgstr "بله"
+
+#: licenses/templates/active_licenses.html:32
+msgid "No"
+msgstr "خیر"
+
+#: licenses/templates/active_licenses.html:37
+#: licenses/templates/show_ticket.html:15
+msgid "Download"
+msgstr "دانلود"
+
+#: licenses/templates/active_licenses.html:39
+msgid "Not Available"
+msgstr "در دسترس نیست"
+
+#: licenses/templates/add_new_product.html:4
+msgid "Trading Locally - Add New Product"
+msgstr "Trading Locally - افزودن محصول جدید"
+
+#: licenses/templates/add_new_product.html:10
+#: licenses/templates/admin_panel_sidebar.html:23
+#: licenses/templates/list_of_products.html:14
+#: licenses/templates/sidebar.html:24
+msgid "Add New Product"
+msgstr "افزودن محصول جدید"
+
+#: licenses/templates/add_new_product.html:17
+#: licenses/templates/edit_product.html:15
+msgid "Features"
+msgstr "ویژگی‌ها"
+
+#: licenses/templates/add_new_product.html:19
+#: licenses/templates/add_new_product.html:39
+#: licenses/templates/edit_product.html:20
+#: licenses/templates/edit_product.html:57
+msgid "Feature Name"
+msgstr "نام ویژگی"
+
+#: licenses/templates/add_new_product.html:20
+#: licenses/templates/add_new_product.html:40
+#: licenses/templates/edit_product.html:21
+#: licenses/templates/edit_product.html:58
+msgid "Feature Value"
+msgstr "مقدار ویژگی"
+
+#: licenses/templates/add_new_product.html:27
+msgid "Add Product"
+msgstr "افزودن محصول"
+
+#: licenses/templates/admin_panel.html:4
+msgid "Trading Locally - Admin Panel"
+msgstr "Trading Locally - پنل مدیریت"
+
+#: licenses/templates/admin_panel.html:16
+msgid "Admin Panel"
+msgstr "پنل مدیریت"
+
+#: licenses/templates/admin_panel.html:21
+msgid "Customer Management"
+msgstr "مدیریت مشتریان"
+
+#: licenses/templates/admin_panel.html:22
+#: licenses/templates/admin_panel_sidebar.html:30
+#: licenses/templates/sidebar.html:28
+msgid "Customers"
+msgstr "مشتریان"
+
+#: licenses/templates/admin_panel.html:23
+#: licenses/templates/admin_panel_sidebar.html:35
+#: licenses/templates/sidebar.html:31
+msgid "Requests"
+msgstr "درخواست‌ها"
+
+#: licenses/templates/admin_panel.html:24 licenses/templates/combined.html:50
+#: licenses/templates/combined.html:90
+#: licenses/templates/customer_panel.html:29
+#: licenses/templates/customer_panel_sidebar.html:22
+#: licenses/templates/sidebar.html:78
+msgid "Tickets"
+msgstr "تیکت‌ها"
+
+#: licenses/templates/admin_panel.html:25 licenses/templates/sidebar.html:54
+msgid "Subscriptions"
+msgstr "خبرنامه"
+
+#: licenses/templates/admin_panel.html:29
+msgid "Product Management"
+msgstr "مدیریت محصولات"
+
+#: licenses/templates/admin_panel.html:30
+#: licenses/templates/admin_panel_sidebar.html:13
+#: licenses/templates/base.html:73 licenses/templates/combined.html:23
+#: licenses/templates/header.html:70 licenses/templates/home.html:30
+#: licenses/templates/product_list.html:11 licenses/templates/sidebar.html:17
+msgid "Products"
+msgstr "محصولات"
+
+#: licenses/templates/admin_panel.html:31
+#: licenses/templates/admin_panel_sidebar.html:67
+#: licenses/templates/sidebar.html:51
+msgid "Shop"
+msgstr "فروشگاه"
+
+#: licenses/templates/admin_panel.html:34
+#: licenses/templates/admin_panel_sidebar.html:40
+#: licenses/templates/messaging.html:8 licenses/templates/sidebar.html:34
+msgid "Messaging"
+msgstr "پیام‌رسانی"
+
+#: licenses/templates/admin_panel.html:35
+#: licenses/templates/admin_panel_sidebar.html:45
+#: licenses/templates/messaging.html:10 licenses/templates/messaging.html:11
+#: licenses/templates/send_public_message.html:10
+#: licenses/templates/sidebar.html:38
+msgid "Send Public Message"
+msgstr "ارسال پیام عمومی"
+
+#: licenses/templates/admin_panel.html:36
+#: licenses/templates/admin_panel_sidebar.html:50
+#: licenses/templates/messaging.html:14 licenses/templates/messaging.html:15
+#: licenses/templates/send_private_message.html:5
+#: licenses/templates/send_private_message.html:12
+#: licenses/templates/sidebar.html:41
+msgid "Send Private Message"
+msgstr "ارسال پیام خصوصی"
+
+#: licenses/templates/admin_panel.html:37
+#: licenses/templates/admin_panel_sidebar.html:55
+#: licenses/templates/inbox.html:10 licenses/templates/messaging.html:18
+#: licenses/templates/messaging.html:19 licenses/templates/sidebar.html:44
+msgid "Inbox"
+msgstr "صندوق ورودی"
+
+#: licenses/templates/admin_panel_sidebar.html:8
+#: licenses/templates/customer_panel_sidebar.html:7
+#: licenses/templates/sidebar.html:14 licenses/templates/sidebar.html:63
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: licenses/templates/admin_panel_sidebar.html:18
+#: licenses/templates/list_of_products.html:11
+#: licenses/templates/sidebar.html:21
+msgid "List of Products"
+msgstr "لیست محصولات"
+
+#: licenses/templates/admin_panel_sidebar.html:62
+#: licenses/templates/sidebar.html:48
+#: licenses/templates/ticket_management.html:9
+msgid "Ticket Management"
+msgstr "مدیریت تیکت‌ها"
+
+#: licenses/templates/admin_subscriptions.html:5
+msgid "Trading Locally - Manage Subscriptions"
+msgstr "Trading Locally - مدیریت مشترکین"
+
+#: licenses/templates/admin_subscriptions.html:10
+msgid "List of Subscriptions"
+msgstr "لیست مشترکین خبرنامه"
+
+#: licenses/templates/admin_subscriptions.html:15
+#: licenses/templates/list_of_customers.html:17
+msgid "ID"
+msgstr ""
+
+#: licenses/templates/admin_subscriptions.html:16
+#: licenses/templates/profile_info.html:23
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: licenses/templates/admin_subscriptions.html:30
+msgid "Download CSV"
+msgstr "دانلود لیست کامل"
+
+#: licenses/templates/base.html:62 licenses/templates/contact.html:10
+msgid "Contact Us"
+msgstr "تماس با ما"
+
+#: licenses/templates/base.html:64
+msgid "123 Tehran"
+msgstr "تهران ۱۲۳"
+
+#: licenses/templates/base.html:64
+msgid "Iran"
+msgstr "ایران"
+
+#: licenses/templates/base.html:65
+msgid "Phone: (+98) 21-456-7890"
+msgstr "شماره تماس: 0098214567890"
+
+#: licenses/templates/base.html:66
+msgid "Email: info@tradinglocally.com"
+msgstr "ایمیل: info@tradinglocally.com"
+
+#: licenses/templates/base.html:70
+msgid "Quick Links"
+msgstr "دسترسی سریع"
+
+#: licenses/templates/base.html:72 licenses/templates/combined.html:22
+#: licenses/templates/header.html:69
+msgid "Home Page"
+msgstr "خانه"
+
+#: licenses/templates/base.html:74 licenses/templates/combined.html:24
+#: licenses/templates/header.html:71
+msgid "About"
+msgstr "درباره"
+
+#: licenses/templates/base.html:75 licenses/templates/combined.html:25
+#: licenses/templates/header.html:72
+msgid "Contact"
+msgstr "تماس"
+
+#: licenses/templates/base.html:78 licenses/templates/combined.html:30
+#: licenses/templates/header.html:75
+msgid "Panel"
+msgstr "پنل"
+
+#: licenses/templates/base.html:80 licenses/templates/combined.html:70
+#: licenses/templates/header.html:77
+msgid "Profile"
+msgstr "پروفایل"
+
+#: licenses/templates/base.html:82 licenses/templates/combined.html:105
+#: licenses/templates/header.html:79
+msgid "Logout"
+msgstr "خروج"
+
+#: licenses/templates/base.html:84 licenses/templates/header.html:81
+#: licenses/templates/login.html:24 licenses/templates/login.html:37
+msgid "Login"
+msgstr "ورود"
+
+#: licenses/templates/base.html:85 licenses/templates/header.html:82
+#: licenses/templates/register.html:23 licenses/templates/register.html:119
+msgid "Register"
+msgstr "ثبت‌نام"
+
+#: licenses/templates/base.html:90
+msgid "Newsletter"
+msgstr "خبرنامه"
+
+#: licenses/templates/base.html:92
+msgid "Subscribe to our newsletter:"
+msgstr "از اخبار و اطلاعات جدید آگاه شوید:"
+
+#: licenses/templates/base.html:95
+msgid "Subscribe"
+msgstr "عضویت"
+
+#: licenses/templates/base.html:100
+msgid "Social Media"
+msgstr "شبکه‌های اجتماعی"
+
+#: licenses/templates/base.html:112 licenses/templates/combined.html:9
+msgid "فارسی"
+msgstr "فارسی"
+
+#: licenses/templates/base.html:113 licenses/templates/combined.html:8
+msgid "English"
+msgstr "English"
+
+#: licenses/templates/checkout.html:4
+#, fuzzy
+#| msgid "Trading Locally - Shop"
+msgid "Trading Locally - Checkout"
+msgstr "Trading Locally - فروشگاه"
+
+#: licenses/templates/checkout.html:9
+msgid "Checkout"
+msgstr "پرداخت"
+
+#: licenses/templates/checkout.html:12 licenses/templates/upload_receipt.html:9
+msgid "Product:"
+msgstr "محصول:"
+
+#: licenses/templates/checkout.html:13
+#, fuzzy
+#| msgid "Price"
+msgid "Price (USD)"
+msgstr "قیمت (دلار)"
+
+#: licenses/templates/checkout.html:17
+msgid "Choose Cryptocurrency:"
+msgstr "رمزارز مورد نظرتان را انتخاب کنید:"
+
+#: licenses/templates/checkout.html:24
+msgid "Pay"
+msgstr "پرداخت"
+
+#: licenses/templates/combined.html:35 licenses/templates/combined.html:75
+#: licenses/templates/customer_panel.html:20
+#: licenses/templates/customer_panel_sidebar.html:13
+#: licenses/templates/profile_info.html:9 licenses/templates/sidebar.html:69
+msgid "Profile Information"
+msgstr "اطلاعات پروفایل"
+
+#: licenses/templates/combined.html:40 licenses/templates/combined.html:80
+#: licenses/templates/customer_panel.html:21
+#: licenses/templates/customer_panel_sidebar.html:16
+#: licenses/templates/sidebar.html:72
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: licenses/templates/combined.html:45 licenses/templates/combined.html:85
+#: licenses/templates/customer_panel.html:25
+#: licenses/templates/customer_panel_sidebar.html:19
+#: licenses/templates/performance/index.html:3
+#: licenses/templates/performance/index.html:10
+#: licenses/templates/performance/reports.html:5
+#: licenses/templates/sidebar.html:75
+msgid "Performance"
+msgstr "عملکرد"
+
+#: licenses/templates/combined.html:55 licenses/templates/combined.html:95
+#: licenses/templates/customer_panel_sidebar.html:25
+#: licenses/templates/sidebar.html:82
+msgid "All Tickets"
+msgstr "تمام تیکت‌ها"
+
+#: licenses/templates/combined.html:60 licenses/templates/combined.html:100
+#: licenses/templates/create_new_ticket.html:11
+#: licenses/templates/customer_panel_sidebar.html:28
+#: licenses/templates/sidebar.html:85
+msgid "Create New Ticket"
+msgstr "ایجاد تیکت جدید"
+
+#: licenses/templates/contact.html:5
+msgid "Trading Locally - Contact Us"
+msgstr "Trading Locally - تماس با ما"
+
+#: licenses/templates/contact.html:12
+msgid "Telegram"
+msgstr "تلگرام"
+
+#: licenses/templates/contact.html:13
+msgid "E-Mail"
+msgstr "ایمیل"
+
+#: licenses/templates/create_new_ticket.html:4
+msgid "Trading Locally - Create New Ticket"
+msgstr "Trading Locally - ایجاد تیکت جدید"
+
+#: licenses/templates/create_new_ticket.html:17
+#: licenses/templates/list_of_tickets.html:15
+#: licenses/templates/ticket_management.html:20
+msgid "Topic"
+msgstr "موضوع"
+
+#: licenses/templates/create_new_ticket.html:25
+msgid "Priority"
+msgstr "اولویت:"
+
+#: licenses/templates/create_new_ticket.html:33
+#: licenses/templates/send_private_message.html:16
+#: licenses/templates/send_public_message.html:14
+msgid "Message"
+msgstr "پیام"
+
+#: licenses/templates/create_new_ticket.html:41
+msgid "Attachments"
+msgstr "پیوست‌ها:"
+
+#: licenses/templates/create_new_ticket.html:48
+#: licenses/templates/show_ticket.html:22
+msgid "Submit"
+msgstr "ارسال"
+
+#: licenses/templates/customer_panel.html:4
+msgid "Trading Locally - Profile"
+msgstr "Trading Locally - پروفایل"
+
+#: licenses/templates/customer_panel.html:15
+msgid "Customer Panel"
+msgstr "پنل مشتری"
+
+#: licenses/templates/customer_panel.html:18
+msgid "Profile Management"
+msgstr "مدیریت پروفایل"
+
+#: licenses/templates/customer_panel.html:24
+msgid "Analytics"
+msgstr "تجزیه و تحلیل داده‌ها"
+
+#: licenses/templates/customer_panel.html:28
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: licenses/templates/customer_panel.html:30
+#: licenses/templates/list_of_tickets.html:33
+msgid "New Ticket"
+msgstr "تیکت جدید"
+
+#: licenses/templates/customer_profile.html:3
+msgid "Trading Locally - Customer Profile"
+msgstr "Trading Locally - پروفایل مشتری"
+
+#: licenses/templates/customer_profile.html:9
+msgid "Customer Profile -"
+msgstr "پروفایل مشتری -"
+
+#: licenses/templates/customer_profile.html:16
+msgid "Active"
+msgstr "فعال"
+
+#: licenses/templates/customer_profile.html:35
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#: licenses/templates/customer_profile.html:43
+#: licenses/templates/list_of_requests.html:55 licenses/templates/shop.html:35
+msgid "Save"
+msgstr "ذخیره"
+
+#: licenses/templates/edit_product.html:4
+msgid "Trading Locally - Edit Product"
+msgstr "Trading Locally - ویرایش محصول"
+
+#: licenses/templates/edit_product.html:7
+msgid "Edit Product"
+msgstr "ویرایش محصول"
+
+#: licenses/templates/edit_product.html:32 licenses/templates/settings.html:180
+msgid "Save Changes"
+msgstr "ذخیره تغییرات"
+
+#: licenses/templates/header.html:87
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: licenses/templates/header.html:100
+msgid "Welcome to Trading Locally"
+msgstr "به Trading Locally خوش آمدید"
+
+#: licenses/templates/header.html:102
+msgid "Get Started"
+msgstr "از اینجا شروع کنید"
+
+#: licenses/templates/home.html:4
+msgid "Trading Locally - Home"
+msgstr "Trading Locally - خانه"
+
+#: licenses/templates/home.html:46 licenses/templates/product_list.html:27
+msgid "More..."
+msgstr "اطلاعات بیشتر..."
+
+#: licenses/templates/inbox.html:5
+msgid "Trading Locally - Inbox"
+msgstr "Trading Locally - صندوق ورودی"
+
+#: licenses/templates/inbox.html:13 licenses/templates/list_of_products.html:15
+#: licenses/templates/list_of_requests.html:12
+#: licenses/templates/ticket_management.html:12
+msgid "Remove Selected"
+msgstr "حذف موارد انتخاب شده"
+
+#: licenses/templates/inbox.html:19
+msgid "Sender"
+msgstr "فرستنده"
+
+#: licenses/templates/inbox.html:20
+msgid "Message Preview"
+msgstr "پیش‌نمایش پیام"
+
+#: licenses/templates/inbox.html:21
+#: licenses/templates/ticket_management.html:22
+msgid "Actions"
+msgstr "اقدامات"
+
+#: licenses/templates/inbox.html:37
+#: licenses/templates/performance/index.html:29
+msgid "Show"
+msgstr "نمایش"
+
+#: licenses/templates/list_of_customers.html:4
+msgid "Trading Locally - Manage Customers"
+msgstr "Trading Locally - مدیریت مشتریان"
+
+#: licenses/templates/list_of_customers.html:12
+msgid "List of Customers"
+msgstr "لیست مشتریان"
+
+#: licenses/templates/list_of_customers.html:18
+#: licenses/templates/list_of_requests.html:19 licenses/templates/login.html:31
+#: licenses/templates/ticket_management.html:19
+msgid "Username"
+msgstr "نام کاربری"
+
+#: licenses/templates/list_of_customers.html:19
+msgid "Email Address"
+msgstr "آدرس ایمیل"
+
+#: licenses/templates/list_of_customers.html:20
+msgid "Broker Code"
+msgstr "شماره اکانت"
+
+#: licenses/templates/list_of_customers.html:22
+msgid "Referrer"
+msgstr "ارجاع‌دهنده"
+
+#: licenses/templates/list_of_customers.html:23
+msgid "Reset Limit"
+msgstr "ریست"
+
+#: licenses/templates/list_of_customers.html:35
+msgid "Reset"
+msgstr "ریست"
+
+#: licenses/templates/list_of_products.html:5
+#: licenses/templates/product_list.html:4
+msgid "Trading Locally - List of Products"
+msgstr "Trading Locally - لیست محصولات"
+
+#: licenses/templates/list_of_products.html:23
+#: licenses/templates/product_detail.html:93
+msgid "Price"
+msgstr "قیمت (تومان)"
+
+#: licenses/templates/list_of_products.html:24
+msgid "Number of Sales"
+msgstr "تعداد فروش"
+
+#: licenses/templates/list_of_products.html:25
+msgid "Number of Active Users"
+msgstr "تعداد کاربران فعال"
+
+#: licenses/templates/list_of_requests.html:4
+msgid "Trading Locally - Manage Requests"
+msgstr "Trading Locally - مدیریت درخواست‌ها"
+
+#: licenses/templates/list_of_requests.html:9
+msgid "List of Requests"
+msgstr "لیست درخواست‌ها"
+
+#: licenses/templates/list_of_requests.html:21
+#: licenses/templates/profile_info.html:20
+msgid "Account Number"
+msgstr "شماره اکانت"
+
+#: licenses/templates/list_of_requests.html:22
+msgid "Upload Executable"
+msgstr "آپلود فایل اجرایی"
+
+#: licenses/templates/list_of_tickets.html:4
+#: licenses/templates/list_of_tickets.html:8
+msgid "List of Tickets"
+msgstr "لیست تیکت‌ها"
+
+#: licenses/templates/list_of_tickets.html:14 licenses/templates/shop.html:18
+#: licenses/templates/ticket_management.html:18
+msgid "Datetime"
+msgstr "تاریخ و زمان"
+
+#: licenses/templates/list_of_tickets.html:16
+msgid "Summary"
+msgstr "خلاصه"
+
+#: licenses/templates/list_of_tickets.html:17
+#: licenses/templates/ticket_management.html:21
+msgid "Status"
+msgstr "وضعیت"
+
+#: licenses/templates/list_of_tickets.html:18
+msgid "More"
+msgstr "بیشتر"
+
+#: licenses/templates/list_of_tickets.html:28
+#: licenses/templates/ticket_management.html:39
+msgid "View"
+msgstr "نمایش"
+
+#: licenses/templates/login.html:4
+msgid "Trading Locally - Login"
+msgstr "Trading Locally - ورود"
+
+#: licenses/templates/login.html:34
+msgid "Password"
+msgstr "رمز عبور"
+
+#: licenses/templates/login.html:42
+msgid "Don't have an account?"
+msgstr "آیا حساب کاربری دارید؟"
+
+#: licenses/templates/login.html:42
+msgid "Register Here"
+msgstr "اینجا ثبت‌نام کنید"
+
+#: licenses/templates/message.html:4
+msgid "Display Message"
+msgstr "پیام"
+
+#: licenses/templates/message.html:9
+msgid "Message from"
+msgstr "پیام از"
+
+#: licenses/templates/message.html:11
+msgid "Back to Inbox"
+msgstr "بازگشت به صندوق ورودی"
+
+#: licenses/templates/messaging.html:4
+msgid "Trading Locally - Messaging"
+msgstr "Trading Locally - پیام‌ها"
+
+#: licenses/templates/payment_fail.html:4
+#, fuzzy
+#| msgid "Trading Locally - Payment Success"
+msgid "Trading Locally - Payment Failed"
+msgstr "Trading Locally - موفقیت پرداخت"
+
+#: licenses/templates/payment_fail.html:10
+#, fuzzy
+#| msgid "Payment Failed..."
+msgid "Payment Failed"
+msgstr "پرداخت ناموفق بود..."
+
+#: licenses/templates/payment_fail.html:12
+msgid "There was an issue processing your payment. Please try again."
+msgstr "مشکلی در پرداخت پیش آمده است. لطفا دوباره اقدام کنید."
+
+#: licenses/templates/payment_success.html:4
+msgid "Trading Locally - Payment Successful"
+msgstr "Trading Locally - موفقیت پرداخت"
+
+#: licenses/templates/payment_success.html:10
+msgid "Payment Successful"
+msgstr "پرداخت موفقیت‌آمیز بود!"
+
+#: licenses/templates/payment_success.html:12
+msgid "Your payment has been processed successfully."
+msgstr "پرداخت با موفقیت انجام شد"
+
+#: licenses/templates/payment_success.html:13
+msgid "Now you can go to your active licenses"
+msgstr "اکنون می‌توانید به قسمت لایسنس‌های فعال مراجعه کنید."
+
+#: licenses/templates/performance/bar_chart.html:3
+#: licenses/templates/performance/bar_chart.html:7
+msgid "Bar Chart"
+msgstr "نمودار میله‌ای"
+
+#: licenses/templates/performance/bar_chart.html:11
+#: licenses/templates/performance/bubble_chart.html:11
+msgid "Y Axis:"
+msgstr "محور عمودی:"
+
+#: licenses/templates/performance/bubble_chart.html:3
+#: licenses/templates/performance/bubble_chart.html:7
+msgid "Bubble Chart"
+msgstr "نمودار حبابی"
+
+#: licenses/templates/performance/bubble_chart.html:20
+msgid "Bubble Size:"
+msgstr "اندازه حباب‌ها:"
+
+#: licenses/templates/performance/index.html:13
+msgid "Report:"
+msgstr "'گزارش:"
+
+#: licenses/templates/performance/index.html:15
+msgid "Select a report"
+msgstr "یک گزارش را انتخاب کنید"
+
+#: licenses/templates/performance/index.html:20
+msgid "Chart Type:"
+msgstr "نمودار:"
+
+#: licenses/templates/performance/index.html:22
+msgid "Select a chart type"
+msgstr "یک نمودار را انتخاب کنید"
+
+#: licenses/templates/performance/index.html:24
+msgid "Hourly Bar Chart"
+msgstr "نمودار میله‌ای ساعتی"
+
+#: licenses/templates/performance/index.html:25
+msgid "Week Day Bar Chart"
+msgstr "نمودار میله‌ای هفتگی"
+
+#: licenses/templates/performance/index.html:26
+msgid "Hourly Bubble Chart"
+msgstr "نمودار حبابی ساعتی"
+
+#: licenses/templates/performance/index.html:27
+msgid "Week Day Bubble Chart"
+msgstr "نمودار حبابی هفتگی"
+
+#: licenses/templates/performance/reports.html:10
+#, fuzzy
+#| msgid "Report:"
+msgid "Reports"
+msgstr "'گزارش:"
+
+#: licenses/templates/product_detail.html:4
+msgid "Product Detail"
+msgstr "جزئیات محصول"
+
+#: licenses/templates/product_detail.html:86
+msgid "Edit"
+msgstr "ویرایش"
+
+#: licenses/templates/product_detail.html:98
+msgid "Quantity:"
+msgstr "تعداد:"
+
+#: licenses/templates/product_detail.html:102
+msgid "Add to Cart"
+msgstr "افزودن به سبد خرید"
+
+#: licenses/templates/product_detail.html:106
+msgid "Buy Using Crypto"
+msgstr "خرید با رمزارز"
+
+#: licenses/templates/profile_info.html:3
+msgid "Trading Locally - Profile Information"
+msgstr "Trading Locally - اطلاعات پروفایل"
+
+#: licenses/templates/profile_info.html:13
+msgid "Submit Changes"
+msgstr "ذخیره تغییرات"
+
+#: licenses/templates/profile_info.html:15
+msgid "Referral Link"
+msgstr "لینک ارجاع"
+
+#: licenses/templates/profile_info.html:18
+msgid "Copy Link"
+msgstr "کپی"
+
+#: licenses/templates/profile_info.html:26
+#, fuzzy
+#| msgid "Username"
+msgid "EA Username"
+msgstr "نام کاربری"
+
+#: licenses/templates/profile_info.html:29
+#, fuzzy
+#| msgid "Password"
+msgid "EA Password"
+msgstr "رمز عبور"
+
+#: licenses/templates/profile_info.html:32
+msgid "Timezone"
+msgstr "موقعیت زمانی"
+
+#: licenses/templates/profile_info.html:52
+msgid "Referral link copied to clipboard!"
+msgstr "لینک ارجاع کپی شد"
+
+#: licenses/templates/register.html:4
+msgid "Trading Locally - Register"
+msgstr "Trading Locally - ثبت‌نام"
+
+#: licenses/templates/register.html:41
+msgid "Username:"
+msgstr "نام کاربری:"
+
+#: licenses/templates/register.html:54
+msgid "Email:"
+msgstr "ایمیل:"
+
+#: licenses/templates/register.html:67
+msgid "Password:"
+msgstr "رمز عبور:"
+
+#: licenses/templates/register.html:80
+msgid "Confirm Password:"
+msgstr "تأیید رمز عبور:"
+
+#: licenses/templates/register.html:93
+msgid "Phone Number:"
+msgstr "شماره تلفن:"
+
+#: licenses/templates/register.html:107
+msgid "Referrer (optional):"
+msgstr "ارجاع‌دهنده (اختیاری):"
+
+#: licenses/templates/register.html:121
+msgid "Already have an account? "
+msgstr "آیا حساب کاربری دارید؟ "
+
+#: licenses/templates/register.html:121
+msgid "Login here</a>"
+msgstr "اینجا وارد شوید</a>"
+
+#: licenses/templates/send_private_message.html:20
+msgid "Recipients (comma-separated usernames)"
+msgstr "گیرندگان (نام‌های کاربری جدا شده با کاما)"
+
+#: licenses/templates/send_private_message.html:28
+#: licenses/templates/send_public_message.html:21
+#: licenses/templates/show_ticket_admin.html:26
+#: licenses/templates/show_ticket_customer.html:25
+msgid "Send"
+msgstr "ارسال"
+
+#: licenses/templates/send_public_message.html:4
+msgid "Trading Locally - Send Public Message"
+msgstr "Trading Locally - ارسال پیام عمومی"
+
+#: licenses/templates/settings.html:7
+msgid "Trading Locally - Settings"
+msgstr "Trading Locally - تنظیمات"
+
+#: licenses/templates/settings.html:12
+msgid "Account Settings"
+msgstr "تنظیمات حساب کاربری"
+
+#: licenses/templates/settings.html:18
+msgid "Field"
+msgstr "پارامتر"
+
+#: licenses/templates/settings.html:19
+#, python-format
+msgid "Remaining %%"
+msgstr "باقیمانده (درصد):"
+
+#: licenses/templates/settings.html:20
+msgid "Remaining $"
+msgstr "باقیمانده (دلار):"
+
+#: licenses/templates/settings.html:27
+#, python-format
+msgid "Daily Drawdown (%%)"
+msgstr ""
+
+#: licenses/templates/settings.html:48
+msgid "Daily Trade Limit (number of trades)"
+msgstr ""
+
+#: licenses/templates/settings.html:69
+#, python-format
+msgid "Daily Profit Limit (%%)"
+msgstr ""
+
+#: licenses/templates/settings.html:90
+#, python-format
+msgid "Monthly Drawdown (%%)"
+msgstr ""
+
+#: licenses/templates/settings.html:111
+#, python-format
+msgid "Monthly Profit Limit (%%)"
+msgstr ""
+
+#: licenses/templates/settings.html:132
+msgid "Trade Delays (minutes)"
+msgstr ""
+
+#: licenses/templates/settings.html:155
+msgid "Update Limit (days)"
+msgstr ""
+
+#: licenses/templates/settings.html:186
+msgid "You cannot update your settings until"
+msgstr "تاریخ بعدی برای بروزرسانی: "
+
+#: licenses/templates/shop.html:5
+msgid "Trading Locally - Shop"
+msgstr "Trading Locally - فروشگاه"
+
+#: licenses/templates/shop.html:10
+msgid "Received Receipts"
+msgstr "رسیدهای دریافتی"
+
+#: licenses/templates/shop.html:17
+msgid "Customer"
+msgstr "مشتری"
+
+#: licenses/templates/shop.html:19
+msgid "Receipt"
+msgstr "رسید"
+
+#: licenses/templates/shop.html:20
+msgid "Verify"
+msgstr "تأیید"
+
+#: licenses/templates/show_ticket.html:5
+#: licenses/templates/show_ticket_admin.html:3
+#: licenses/templates/show_ticket_customer.html:3
+msgid "Trading Locally - Ticket Detail"
+msgstr "Trading Locally - جزئیات تیکت"
+
+#: licenses/templates/show_ticket.html:9
+#: licenses/templates/show_ticket_admin.html:8
+#: licenses/templates/show_ticket_customer.html:6
+msgid "Ticket Detail"
+msgstr "جزئیات تیکت"
+
+#: licenses/templates/show_ticket.html:11
+msgid "Topic:"
+msgstr "موضوع:"
+
+#: licenses/templates/show_ticket.html:12
+msgid "Priority:"
+msgstr "اولویت:"
+
+#: licenses/templates/show_ticket.html:13
+msgid "Message:"
+msgstr "پیام:"
+
+#: licenses/templates/show_ticket.html:15
+msgid "Attachments:"
+msgstr "پیوست‌ها:"
+
+#: licenses/templates/show_ticket.html:18
+#: licenses/templates/show_ticket_admin.html:22
+msgid "Respond to Ticket"
+msgstr "پاسخ به تیکت"
+
+#: licenses/templates/show_ticket_admin.html:9
+#: licenses/templates/show_ticket_customer.html:8
+msgid "Messages"
+msgstr "پیام‌ها"
+
+#: licenses/templates/show_ticket_admin.html:15
+#: licenses/templates/show_ticket_customer.html:14
+msgid "> Download Attachment"
+msgstr "> دانلود پیوست"
+
+#: licenses/templates/show_ticket_customer.html:21
+msgid "Follow-Up Question"
+msgstr "سوال پیگیری"
+
+#: licenses/templates/success_page.html:4
+msgid "Trading Locally - Successful"
+msgstr "Trading Locally - موفقیت‌آمیز"
+
+#: licenses/templates/success_page.html:7
+msgid "Receipt Uploaded Successfully!"
+msgstr "رسید با موفقیت بارگذاری شد!"
+
+#: licenses/templates/success_page.html:8
+msgid "Your receipt has been uploaded and is pending verification."
+msgstr "رسید شما بارگذاری شده و در انتظار تأیید است."
+
+#: licenses/templates/success_page.html:9
+msgid "Go to Shop"
+msgstr "رفتن به فروشگاه"
+
+#: licenses/templates/ticket_management.html:3
+msgid "Trading Locally - Manage Tickets"
+msgstr "Trading Locally - مدیریت تیکت‌ها"
+
+#: licenses/templates/ticket_management.html:37
+#, python-format
+msgid "%(topic_display)s"
+msgstr ""
+
+#: licenses/templates/ticket_management.html:38
+#, python-format
+msgid "%(status_display)s"
+msgstr ""
+
+#: licenses/templates/upload_receipt.html:3
+msgid "Trading Locally - Upload Receipt"
+msgstr "Trading Locally - بارگذاری رسید"
+
+#: licenses/templates/upload_receipt.html:5
+msgid "Upload Receipt for"
+msgstr "بارگذاری رسید برای"
+
+#: licenses/templates/upload_receipt.html:10
+msgid "Upload"
+msgstr "بارگذاری"
+
+#: licenses/templates/verify_payment.html:3
+msgid "Trading Locally - Verify Payment"
+msgstr "Trading Locally - تأیید پرداخت"
+
+#: licenses/templates/verify_payment.html:26
+msgid "Verifying your payment, please wait..."
+msgstr "در حال تأیید پرداخت شما، لطفاً صبر کنید..."
+
+#: licenses/templates/view_cart_summary.html:5
+#: licenses/templates/view_cart_summary.html:11
+msgid "Cart Summary"
+msgstr "سبد خرید"
+
+#: licenses/templates/view_cart_summary.html:16
+msgid "Remove"
+msgstr "حذف"
+
+#: licenses/templates/view_cart_summary.html:21
+msgid "Total"
+msgstr "جمع کل"
+
+#: licenses/templates/view_cart_summary.html:21
+msgid "Tomans"
+msgstr "تومان"
+
+#: licenses/templates/view_cart_summary.html:22
+msgid "Finalize Cart"
+msgstr "پرداخت"
+
+#~ msgid "active licenses"
+#~ msgstr "لایسنس‌های فعال"
+
+#~ msgid "Paragraph 123"
+#~ msgstr "پاراگراف ۱۲۳"
+
+#~ msgid "active licenses</a>."
+#~ msgstr "<a href=\"\">لایسنس‌های فعال</a> بروید."
+
+#~ msgid "or"
+#~ msgstr "یا"
+
+#~ msgid "Upload Receipt"
+#~ msgstr "بارگذاری رسید"
+
+#, fuzzy
+#~| msgid "Trading Locally - Ticket Detail"
+#~ msgid "Trading Locally - Product Detail"
+#~ msgstr "Trading Locally - جزئیات تیکت"
+
+#~ msgid "Price:"
+#~ msgstr "قیمت (تومان):"
+
+#~ msgid "Buy Now"
+#~ msgstr "هم‌اکنون بخرید"
+
+#~ msgid "Full Support"
+#~ msgstr "پشتیبانی کامل"
+
+#~ msgid "Duration"
+#~ msgstr "اعتبار"
+
+#~ msgid "BUY NOW"
+#~ msgstr "هم‌اکنون بخرید"
+
+#~ msgid ""
+#~ "\n"
+#~ "            Please go back to the <a href=\"%(url 'product_list')s\">list "
+#~ "of products.</a>\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "            لطفاً به <a href=\"%(url 'product_list')s\">لیست محصولات</a> "
+#~ "بازگردید.\n"
+#~ "        "
+
+#~ msgid "Product"
+#~ msgstr "محصول"
+
+#~ msgid "Description"
+#~ msgstr "توضیحات"
+
+#~ msgid "Account Number:"
+#~ msgstr "شماره اکانت:"
+
+#, fuzzy
+#~| msgid "Email Address"
+#~ msgid "Your email address"
+#~ msgstr "آدرس ایمیل"
+
+#~ msgid "Phone:"
+#~ msgstr "شماره تلفن:"
+
+#~ msgid "If you don't have an account, please "
+#~ msgstr "اگر حساب کاربری ندارید، لطفاً "
+
+#~ msgid "register here"
+#~ msgstr "اینجا ثبت‌نام کنید"
+
+#~ msgid "Already have an account?"
+#~ msgstr "آیا حساب کاربری دارید؟"
+
+#~ msgid "Login here"
+#~ msgstr "اینجا وارد شوید"
+
+#~ msgid "Manage Users"
+#~ msgstr "مدیریت کاربران"
+
+#~ msgid "Manage Products"
+#~ msgstr "مدیریت محصولات"
+
+#~ msgid "Manage Requests"
+#~ msgstr "مدیریت درخواست‌ها"
+
+#~ msgid "Trading Locally"
+#~ msgstr "Trading Locally"
+
+#~ msgid "User ID"
+#~ msgstr "شناسه کاربر"
+
+#~ msgid "Trading Locally - %(product.name)s"
+#~ msgstr "Trading Locally - %(product.name)s"
+
+#~ msgid "Price: $%(product.price)s"
+#~ msgstr "قیمت: $%(product.price)s"
+
+#~ msgid "Read More"
+#~ msgstr "اطلاعات بیشتر..."
+
+#~ msgid "X Axis:"
+#~ msgstr "محور افقی:"
+
+#~ msgid "Select Language"
+#~ msgstr "انتخاب زبان"
+
+#~ msgid "My Site"
+#~ msgstr "سایت من"
+
+#~ msgid "Message from %(message.sender.username)s"
+#~ msgstr "پیام از %(message.sender.username)s"
+
+#, fuzzy
+#~| msgid "Login here</a>."
+#~ msgid "register here</a>."
+#~ msgstr "اینجا وارد شوید</a>."
+
+#~ msgid "Login here</a>."
+#~ msgstr "اینجا وارد شوید</a>."

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}  
+{% block title %}{% trans 'Trading Locally - Customer Profile' %}{% endblock %}
+
+{% block content %}
+    
+    <div class="container">
+		    <div class="card animate-on-scroll">
+        <h2 class="section-title" style="text-align: center;">{% trans 'Customer Profile -' %} {{ customer.username }}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>{% trans 'Product Name' %}</th>
+                        <th>{% trans 'Active' %}</th>
+                        <th>{% trans 'Expiry Date' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>
+                                <input type="checkbox" name="active_{{ product.id }}" {% if product in active_products %}checked{% endif %}>
+                            </td>
+                            <td>
+                                {% if product in active_products %}
+                                    {% for activation in activations %}
+                                        {% if activation.product.id == product.id %}
+                                            <input type="text" name="expiry_date_{{ product.id }}" value="{{ activation.expiry_date }}">
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <input type="text" name="expiry_date_{{ product.id }}" placeholder="{% trans 'YYYY-MM-DD' %}">
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p></p>
+            <button type="submit" class="btn">{% trans 'Save' %}</button>
+        </form>
+    </div>
+    </div>
+{% endblock %}

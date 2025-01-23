@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Messaging" %}{% endblock %}
+
+{% block content %}
+    
+<h1>{% trans "Messaging" %}</h1>
+<div class="card animate-on-scroll">
+    <h2>{% trans "Send Public Message" %}</h2>
+    <p><a href="{% url 'send_public_message' %}" class="btn">{% trans "Send Public Message" %}</a></p>
+</div>
+<div class="card animate-on-scroll">
+    <h2>{% trans "Send Private Message" %}</h2>
+    <p><a href="{% url 'send_private_message' %}" class="btn">{% trans "Send Private Message" %}</a></p>
+</div>
+<div class="card animate-on-scroll">
+    <h2>{% trans "Inbox" %}</h2>
+    <p><a href="{% url 'inbox' %}" class="btn">{% trans "Inbox" %}</a></p>
+</div>
+<p> </p>
+{% endblock %}

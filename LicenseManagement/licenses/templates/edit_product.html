@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Edit Product" %}{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>{% trans "Edit Product" %}</h2>
+    <div class="card animate-on-scroll">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.media }}
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div id="features-container">
+                <h3>{% trans "Features" %}</h3>
+                <!-- Render existing features if any -->
+                {% if form.instance.features %}
+                    {% for key, value in form.instance.features.items %}
+                        <div class="feature-item">
+                            <input type="text" class="feature-key" value="{{ key }}" placeholder="{% trans "Feature Name" %}" required />
+                            <input type="text" class="feature-value" value="{{ value }}" placeholder="{% trans "Feature Value" %}" required />
+                            <button type="button" class="btn btn-danger remove-feature">-</button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <button type="button" id="add-feature" class="btn">+</button>
+                <p></p>
+            </div>
+
+            <input type="hidden" name="features" id="features-input" value='{{ form.instance.features|default_if_none:"{}" }}' />
+
+            <button type="submit" class="btn">{% trans "Save Changes" %}</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function updateFeaturesInput() {
+            const featureItems = document.querySelectorAll('.feature-item');
+            const features = {};
+            featureItems.forEach(item => {
+                const key = item.querySelector('.feature-key').value;
+                const value = item.querySelector('.feature-value').value;
+                if (key && value) {
+                    features[key] = value;
+                }
+            });
+            document.getElementById('features-input').value = JSON.stringify(features);
+        }
+
+        document.getElementById('add-feature').addEventListener('click', function() {
+            const container = document.getElementById('features-container');
+            const featureItem = document.createElement('div');
+            featureItem.classList.add('feature-item');
+            featureItem.innerHTML = `
+                <input type="text" class="feature-key" placeholder="{% trans "Feature Name" %}" required />
+                <input type="text" class="feature-value" placeholder="{% trans "Feature Value" %}" required />
+                <button type="button" class="btn btn-danger remove-feature">-</button>
+            `;
+            container.insertBefore(featureItem, this);
+        });
+
+        document.getElementById('features-container').addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-feature')) {
+                event.target.parentElement.remove();
+                updateFeaturesInput();
+            }
+        });
+
+        document.querySelector('form').addEventListener('submit', function() {
+            updateFeaturesInput();
+        });
+
+        // Handle hidden required textarea
+        const description = document.getElementById('id_description');
+        if (description) {
+            description.removeAttribute('required');
+        }
+    });
+</script>
+
+<style>
+    .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .feature-item input {
+        margin-right: 10px;
+    }
+
+    .remove-feature {
+        margin-right: 10px;
+    }
+
+    #add-feature {
+        display: block;
+        margin-top: 10px;
+    }
+</style>
+
+{% endblock %}

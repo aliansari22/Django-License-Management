@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Successful" %}{% endblock %}  {# Use {% trans %} to mark translatable text #}
+
+{% block content %}
+  <h2>{% trans "Receipt Uploaded Successfully!" %}</h2>
+  <p>{% trans "Your receipt has been uploaded and is pending verification." %}</p>
+  <a href="{% url 'product_list' %}">{% trans "Go to Shop" %}</a>
+{% endblock %}

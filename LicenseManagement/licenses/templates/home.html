@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Trading Locally - Home{% endblocktrans %}{% endblock %}
+
+{% block content %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(card => {
+        observer.observe(card);
+    });
+});
+</script>
+
+<div class="container">
+    <div class="card-cus animate-on-scroll">
+        <div class="block-heading">
+            <h2 class="section-title" style="text-align: center;">{% blocktrans %}Products{% endblocktrans %}</h2>
+        </div>
+        <div class="products-container">
+            {% for product in products %}
+            <div class="product-card animate-on-scroll">
+                <div class="heading">
+                    <h3>{{ product.persian_name }}</h3>
+                </div>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 40%;">
+                <p></p>
+                <div class="features">
+                    {% for key, value in product.features.items %}
+                        <h4><span class="feature">{{ key }}:&nbsp;</span><span>{{ value }}</span></h4>
+                    {% endfor %}
+                </div>
+                
+                <a href="{% url 'product_detail' product.id %}" class="btn d-block w-100" type="button">{% trans "More..." %}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load i18n %}  <!-- Add i18n tag after importing base.html -->
+
+{% block title %}{% trans "Trading Locally - Inbox" %}{% endblock %}
+{% block content %}
+<div class="container">
+    
+    <div class="card animate-on-scroll">
+    <h2 class="section-title" style="text-align: center;">{% trans "Inbox" %}</h2>
+    <form method="post" action="{% url 'remove_inbox_messages' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">{% trans "Remove Selected" %}</button>
+        <p></p>
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="select-all"></th>
+                    <th>{% trans "Sender" %}</th>
+                    <th>{% trans "Message Preview" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in messages %}
+                <tr class="{% if not message.is_read %}unread{% endif %}">
+                    <td>
+                        <input 
+                            name="selected_messages" 
+                            type="checkbox" 
+                            class="message-checkbox" 
+                            value="{{ message.id }}">
+                    </td>
+                    <td>{{ message.sender.username }}</td>
+                    <td>{{ message.message|truncatewords:10 }}</td>
+                    <td>
+                        <a href="{% url 'view_message' message.id %}" class="btn btn-primary">{% trans "Show" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table><p></p>
+        
+    </form>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %} 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const messageCheckboxes = document.querySelectorAll('.message-checkbox');
+
+        selectAllCheckbox.addEventListener('change', function() {
+            messageCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+    });
+</script>
+
+{% endblock %}

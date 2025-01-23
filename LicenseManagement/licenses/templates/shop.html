@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Shop" %}{% endblock %}
+{% block content %}
+<div class="container">
+  
+  <div class="card animate-on-scroll">
+  <h2 class="section-title" style="text-align: center;">{% trans "Received Receipts" %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <table>
+      <thead>
+        <tr>
+          <th>{% trans "Product Name" %}</th>
+          <th>{% trans "Customer" %}</th>
+          <th>{% trans "Datetime" %}</th>
+          <th>{% trans "Receipt" %}</th>
+          <th>{% trans "Verify" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for receipt in receipts %}
+          <tr>
+            <td>{{ receipt.product.name }}</td>
+            <td>{{ receipt.user.username }}</td>
+            <td>{{ receipt.uploaded_at }}</td>
+            <td><a href="{{ receipt.receipt_image.url }}">{{ receipt.receipt_image.name }}</a></td>
+            <td><input type="checkbox" name="verify_{{ receipt.id }}" {% if receipt.verified %}checked{% endif %}></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table><p></p>
+    <button type="submit" class="btn">{% trans "Save" %}</button>
+  </form>
+  </div>
+  </div>
+{% endblock %}

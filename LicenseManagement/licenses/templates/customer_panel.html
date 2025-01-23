@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load i18n %}  <!-- Add this line after loading static -->
+
+{% block title %}{% trans "Trading Locally - Profile" %}{% endblock %}
+
+{% block content %}
+
+<style>
+.cart {
+	margin-bottom: 40px;
+}
+
+</style>
+<div class="card animate-on-scroll">
+<h2 class="section-title" style="text-align: center;">{% trans "Customer Panel" %}</h2>
+
+<div class="cart">
+	<h3 class="section-title" style="font-size: 1.5rem;">{% blocktrans %}Profile Management{% endblocktrans %}</h3>
+    <a href="{% url 'active_licenses' %}" class="btn">{% trans "Active Licenses" %}</a>
+    <a href="{% url 'profile_info' %}" class="btn">{% trans "Profile Information" %}</a>
+    <a href="{% url 'settings' %}" class="btn">{% trans "Settings" %}</a>
+</div>
+<div class="cart">
+	<h3 class="section-title" style="font-size: 1.5rem;">{% blocktrans %}Analytics{% endblocktrans %}</h3>
+    <a href="{% url 'performance' %}" class="btn">{% trans "Performance" %}</a>
+</div>    
+<div class="cart">
+	<h3 class="section-title" style="font-size: 1.5rem;">{% blocktrans %}Support{% endblocktrans %}</h3>
+    <a href="{% url 'list_of_tickets' %}" class="btn">{% trans "Tickets" %}</a>
+    <a href="{% url 'create_new_ticket' %}" class="btn">{% trans "New Ticket" %}</a>
+</div>
+
+
+</div>
+
+<p> </p>
+{% endblock %}

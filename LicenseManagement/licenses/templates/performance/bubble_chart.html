@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Trading Locally - {% trans "Bubble Chart" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{% trans "Bubble Chart" %}</h1>
+    <div class="card animate-on-scroll">
+        <div class="dropdown-container">
+            <div class="dropdown-switcher">
+                <label for="dropdown2">{% trans "Y Axis:" %}</label>
+                <select id="dropdown2" onchange="updateChart()">
+                    {% for variable in y_axis_variables %}
+                    <option value="{{ variable }}">{{ variable }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="dropdown-switcher">
+                <label for="dropdown3">{% trans "Bubble Size:" %}</label>
+                <select id="dropdown3" onchange="updateChart()">
+                    {% for variable in z_axis_variables %}
+                    <option value="{{ variable }}">{{ variable }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        
+        <div id="bubble-chart"></div>
+
+        <script>
+            const data = {{ data|safe }};
+            const xVariable = "{{ x_axis_variable }}";
+
+            const yAxisMapping = {
+                'Hourly Win Rates': 'hourly_win_rates',
+                'Hourly PNL': 'hourly_pnl',
+                'Hourly Numbers': 'hourly_numbers',
+                'Hourly Volume': 'hourly_volume',
+                'Weekday Win Rates': 'weekday_win_rates',
+                'Weekday PNL': 'weekday_pnl',
+                'Weekday Numbers': 'weekday_numbers',
+                'Week Day Volume': 'weekday_volume'
+            };
+
+            function normalizeSizes(sizes, minSize, maxSize) {
+                const min = Math.min(...sizes);
+                const max = Math.max(...sizes);
+                return sizes.map(size => {
+                    return minSize + (size - min) * (maxSize - minSize) / (max - min);
+                });
+            }
+
+            function updateChart() {
+                const var2 = document.getElementById('dropdown2').value;
+                const var3 = document.getElementById('dropdown3').value;
+
+                const x = data[xVariable.toLowerCase()];
+                const y = data[yAxisMapping[var2]];
+                const rawSize = data[yAxisMapping[var3]];
+
+                const size = normalizeSizes(rawSize, 50, 250);
+
+                const bubbleData = [{
+                    x: x,
+                    y: y,
+                    mode: 'markers',
+                    marker: {
+                        size: size,
+                        sizemode: 'area',
+                        sizeref: 0.1,
+                        color: y,
+                        colorscale: 'RdBu',
+                        reversescale: true,
+                        showscale: true,
+                    },
+                    text: rawSize, // Add raw size data to text for hover
+                    hovertemplate: 'Size: %{text}<extra></extra>'
+                }];
+
+                const layout = {
+                    title: 'Bubble Chart',
+                    xaxis: { 
+                        title: xVariable,
+                        showspikes: true, // Enable spikes
+                        
+                        spikethickness: 1, // Thickness of the spike lines
+                        
+                    },
+                    yaxis: { 
+                        title: var2,
+                        showspikes: true, // Enable spikes
+                        spikethickness: 1, // Thickness of the spike lines
+                    },
+                };
+
+                Plotly.newPlot('bubble-chart', bubbleData, layout);
+            }
+
+            document.addEventListener('DOMContentLoaded', updateChart);
+        </script>
+    </div>
+
+</div>
+
+<style>
+    .dropdown-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dropdown-item {
+        margin: 10px;
+    }
+</style>
+
+{% endblock %}

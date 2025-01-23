@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Trading Locally - Hourly PNL{% endblock %}
+
+
+{% block content %}
+<div class="container">
+<h1>Hourly PNL</h1>
+
+<div id="vertical-bar-chart" style="width:800px;height:500px;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const data = {{ hourly_pnl|safe }};
+        plot_vertical_bar_chart(data, 'vertical-bar-chart', "Hours", "PnL");
+    });
+</script>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+<!-- admin_subscriptions.html -->
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Manage Subscriptions" %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card animate-on-scroll">
+            <h2 class="section-title" style="text-align: center;">{% trans "List of Subscriptions" %}</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">{% trans "ID" %}</th>
+                            <th>{% trans "Phone Number" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for subscription in subscriptions %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ subscription.phone }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="?download=true" class="btn btn-primary">{% trans "Download CSV" %}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

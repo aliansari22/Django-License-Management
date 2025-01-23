@@ -1,0 +1,102 @@
+{% load i18n %}
+{% load static %}
+{% if request.LANGUAGE_CODE == 'fa' %}
+<link rel="stylesheet" href="{% static 'styles_rtl.css' %}">
+{% else %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+{% endif %}
+{% if user.is_authenticated %}
+{% if user.is_staff %}
+<!-- Admin Sidebar -->
+<nav id="sidebarMenu" class="sidebar">
+    <div class="list-group">
+        <a class="list-group-item {% if active_page == 'admin_panel' %}active{% endif %}" href="{% url 'admin_panel' %}">
+            {% trans 'Dashboard' %}
+        </a>
+        <a class="list-group-item submenu-toggle" href="#" onclick="toggleSubmenu('products-submenu')">
+            {% trans 'Products' %}
+        </a>
+        <div id="products-submenu" class="submenu">
+            <a class="list-group-item {% if active_page == 'list_of_products' %}active{% endif %}" href="{% url 'list_of_products' %}">
+                {% trans 'List of Products' %}
+            </a>
+            <a class="list-group-item {% if active_page == 'add_new_product' %}active{% endif %}" href="{% url 'add_new_product' %}">
+                {% trans 'Add New Product' %}
+            </a>
+        </div>
+        <a class="list-group-item {% if active_page == 'list_of_customers' %}active{% endif %}" href="{% url 'list_of_customers' %}">
+            {% trans 'Customers' %}
+        </a>
+        <a class="list-group-item {% if active_page == 'list_of_requests' %}active{% endif %}" href="{% url 'list_of_requests' %}">
+            {% trans 'Requests' %}
+        </a>
+        <a class="list-group-item submenu-toggle" href="#" onclick="toggleSubmenu('messaging-submenu')">
+            {% trans 'Messaging' %}
+        </a>
+        <div id="messaging-submenu" class="submenu">
+            <a class="list-group-item {% if active_page == 'send_public_message' %}active{% endif %}" href="{% url 'send_public_message' %}">
+                {% trans 'Send Public Message' %}
+            </a>
+            <a class="list-group-item {% if active_page == 'send_private_message' %}active{% endif %}" href="{% url 'send_private_message' %}">
+                {% trans 'Send Private Message' %}
+            </a>
+            <a class="list-group-item {% if active_page == 'inbox' %}active{% endif %}" href="{% url 'inbox' %}">
+                {% trans 'Inbox' %}
+            </a>
+        </div>
+        <a class="list-group-item {% if active_page == 'ticket_management' %}active{% endif %}" href="{% url 'ticket_management' %}">
+            {% trans 'Ticket Management' %}
+        </a>
+        <a class="list-group-item {% if active_page == 'shop' %}active{% endif %}" href="{% url 'shop' %}">
+            {% trans 'Shop' %}
+        </a>
+        <a class="list-group-item {% if active_page == 'manage_subscriptions' %}active{% endif %}" href="{% url 'manage_subscriptions' %}">
+            {% trans 'Subscriptions' %}
+        </a>
+    </div>
+</nav>
+{% else %}
+<!-- Customer Sidebar -->
+<nav id="sidebarMenu" class="sidebar">
+    <div class="list-group">
+        <a class="list-group-item {% if active_page == 'customer_panel' %}active{% endif %}" href="{% url 'customer_panel' %}">
+            {% blocktrans %}Dashboard{% endblocktrans %}
+        </a>
+        <a class="list-group-item {% if active_page == 'active_licenses' %}active{% endif %}" href="{% url 'active_licenses' %}">
+            {% blocktrans %}Active Licenses{% endblocktrans %}
+        </a>
+        <a class="list-group-item {% if active_page == 'profile_info' %}active{% endif %}" href="{% url 'profile_info' %}">
+            {% blocktrans %}Profile Information{% endblocktrans %}
+        </a>
+        <a class="list-group-item {% if active_page == 'settings' %}active{% endif %}" href="{% url 'settings' %}">
+            {% blocktrans %}Settings{% endblocktrans %}
+        </a>
+        <a class="list-group-item {% if active_page == 'performance' %}active{% endif %}" href="{% url 'performance' %}">
+            {% blocktrans %}Performance{% endblocktrans %}
+        </a>
+        <a class="list-group-item submenu-toggle" href="#" onclick="toggleSubmenu('tickets-submenu')">
+            {% blocktrans %}Tickets{% endblocktrans %}
+        </a>
+        <div id="tickets-submenu" class="submenu {% if active_page == 'list_of_tickets' %}open{% endif %}">
+            <a class="list-group-item {% if active_page == 'list_of_tickets' %}active{% endif %}" href="{% url 'list_of_tickets' %}">
+                {% blocktrans %}All Tickets{% endblocktrans %}
+            </a>
+            <a class="list-group-item {% if active_page == 'create_new_ticket' %}active{% endif %}" href="{% url 'create_new_ticket' %}">
+                {% blocktrans %}Create New Ticket{% endblocktrans %}
+            </a>
+        </div>
+    </div>
+</nav>
+{% endif %}
+{% endif %}
+
+<script>
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+}
+
+document.getElementById('sidebar-toggler').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('hidden');
+});
+</script>

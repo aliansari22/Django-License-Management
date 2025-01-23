@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% blocktrans %}Trading Locally - Manage Tickets{% endblocktrans %}{% endblock %}
+{% block content %}
+
+<div class="container">    
+
+<div class="card animate-on-scroll">
+<h2 class="section-title" style="text-align: center;">{% blocktrans %}Ticket Management{% endblocktrans %}</h2>
+<form method="post" action="{% url 'remove_tickets' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">{% blocktrans %}Remove Selected{% endblocktrans %}</button>
+    <p></p>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;"><input type="checkbox" id="select-all"></th>
+                <th>{% blocktrans %}Datetime{% endblocktrans %}</th>
+                <th style="width: 150px;">{% blocktrans %}Username{% endblocktrans %}</th>
+                <th>{% blocktrans %}Topic{% endblocktrans %}</th>
+                <th style="width: 100px;">{% blocktrans %}Status{% endblocktrans %}</th>
+                <th>{% blocktrans %}Actions{% endblocktrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr class="{% if ticket.status == 'unread' %}bold{% endif %}">
+                <td>
+                    <input 
+                        name="selected_tickets" 
+                        type="checkbox" 
+                        class="ticket-checkbox" 
+                        value="{{ ticket.id }}">
+                </td>
+                <td>{{ ticket.created_at }}</td>
+                <td>{{ ticket.user.username }}</td>
+                <td>{% blocktrans with ticket.get_topic_display as topic_display %}{{ topic_display }}{% endblocktrans %}</td>
+                <td>{% blocktrans with ticket.get_status_display as status_display %}{{ status_display }}{% endblocktrans %}</td>
+                <td><a href="{% url 'show_ticket_admin' ticket.id %}">{% blocktrans %}View{% endblocktrans %}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><p></p>
+    
+</form>
+</div>
+</div>
+{% endblock %}
+
+
+{% block scripts %} 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const ticketCheckboxes = document.querySelectorAll('.ticket-checkbox');
+
+        selectAllCheckbox.addEventListener('change', function() {
+            ticketCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+    });
+</script>
+{% endblock %}

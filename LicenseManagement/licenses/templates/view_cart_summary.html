@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Trading Locally - {% trans "Cart Summary" %}{% endblock %}
+
+{% block content %}
+
+<div class="card animate-on-scroll">
+    <div class="block-heading">
+            <h2 class="section-title" style="text-align: center;">{% blocktrans %}Cart Summary{% endblocktrans %}</h2>
+     </div>
+    <ul>
+    {% for item in cart.items.all %}
+        <li>{{ item.product.persian_name }} ({{ item.quantity }}) - <span class="formatted-price">{{ item.get_total_price }}</span>
+            <a href="{% url 'remove_from_cart' item.id %}">{% blocktrans %}Remove{% endblocktrans %}</a>
+            <p></p>
+        </li>
+    {% endfor %}
+</ul>
+<p>{% blocktrans %}Total{% endblocktrans %}: <span class="formatted-price">{{ cart.get_total_price }}</span> {% blocktrans %}Tomans{% endblocktrans %}</p>
+<a type="submit" href="{% url 'rial_checkout' cart.id %}" class="btn" style="width: 150px;">{% blocktrans %}Finalize Cart{% endblocktrans %}</a>
+</div>
+{% endblock %}

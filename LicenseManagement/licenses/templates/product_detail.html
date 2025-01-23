@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Trading Locally - {% blocktrans %}Product Detail{% endblocktrans %}{% endblock %}
+
+{% block content %}
+<style>
+.product-description {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.product-description h2 {
+    font-size: 2em;
+    color: #2aa286;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-description .intro {
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.features-section, .benefits-section, .call-to-action {
+    margin-bottom: 30px;
+}
+
+.features-section h3, .benefits-section h3, .call-to-action h3 {
+    font-size: 1.8em;
+    color: #2aa286;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.features-list, .benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li, .benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.features-list li i, .benefits-list li i {
+    font-size: 1.5em;
+    color: #2aa286;
+    margin-right: 10px;
+}
+
+.call-to-action p {
+    font-size: 1.2em;
+    color: #777;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.call-to-action .btn {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<div class="card animate-on-scroll">
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+        <p><a href="{% url 'edit_product' product.id %}" class="btn btn-secondary">{% blocktrans %}Edit{% endblocktrans %}</a></p>
+        {% endif %}
+    {% endif %}
+    <div class="product-detail">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+        <div class="product-info">
+            <h1>{{ product.persian_name }}</h1>
+            <p class="price">{% blocktrans %}Price{% endblocktrans %}: <span class="formatted-price">{{ product.price }}</span></p>
+            <p class="description">{{ product.description|safe }}</p>
+            <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_quantity">{% blocktrans %}Quantity:{% endblocktrans %}</label>
+                    {{ form.quantity }}
+                </div>
+                <p></p>
+                <button type="submit" class="btn btn-primary">{% blocktrans %}Add to Cart{% endblocktrans %}</button>
+            </form>
+            <p></p>
+            <div class="action-buttons">
+                <a href="{% url 'checkout' product.id %}" class="btn btn-primary">{% blocktrans %}Buy Using Crypto{% endblocktrans %}</a>
+            </div>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<script>
+
+
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            plugins: [ Essentials, Paragraph, Bold, Italic, MediaEmbed ],
+            toolbar: [ 'bold', 'italic', 'mediaEmbed' ]
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

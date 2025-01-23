@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load custom_filters %}
+
+{% block title %}Trading Locally - {% trans "Performance" %}{% endblock %}
+
+{% block content %}
+<div class="card animate-on-scroll">
+
+        <h2>{% trans "Reports" %}</h2>
+        <div class="row justify-content-center">
+            <div class="col-6 border-box">
+                <div class="dropdown-container text-center">
+                    <div class="dropdown-switcher">
+                        <label for="dropdown2">Select a Report:</label>
+                        <select id="dropdown2" onchange="onReportChange()">
+                            <option value="">--Select a Report--</option>
+                            {% for report in reports %}
+                                <option value="{{ report.unique_id }}" {% if report == selected_report %}selected{% endif %}>{{ report.unique_id }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                {% if statistics %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in statistics.items %}
+                                <tr>
+                                    <td>{{ key|replace_underscores }}</td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-9 border-box"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<style>
+
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table td, .table th {
+    word-wrap: break-word;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    font-size: 15px;
+}
+
+.table th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table td {
+    text-align: left;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+</style>
+
+<script>
+    function onReportChange() {
+        const selectedReport = document.getElementById('dropdown2').value;
+        window.location.href = `/reports/${selectedReport}/`;
+    }
+</script>
+{% endblock %}

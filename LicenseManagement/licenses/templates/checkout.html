@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Trading Locally - Checkout{% endblocktrans %}{% endblock %}
+
+{% block content %}
+<div class="card animate-on-scroll">
+    <div class="block-heading" style="margin-bottom: 20px;">
+        <h2 class="section-title" style="text-align: center;">{% blocktrans %}Checkout{% endblocktrans %}</h2>
+    </div>
+    <div class="product-details" style="text-align: center; margin-bottom: 20px;">
+        <p style="font-size: 18px; margin: 10px 0;">{% blocktrans %}Product:{% endblocktrans %} <strong>{{ product.name }}</strong></p>
+        <p style="font-size: 18px; margin: 10px 0;">{% blocktrans %}Price (USD){% endblocktrans %}: <strong>${{ price }}</strong></p>
+    </div>
+    <form method="post" style="text-align: center;">
+        {% csrf_token %}
+        <label for="crypto">{% blocktrans %}Choose Cryptocurrency:{% endblocktrans %}</label>
+        <select name="crypto" id="crypto" style="margin-bottom: 20px;">
+            {% for currency in currencies %}
+                <option value="{{ currency }}">{{ currency|upper }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit" class="btn">{% blocktrans %}Pay{% endblocktrans %}</button>
+    </form>
+</div>
+{% endblock %}

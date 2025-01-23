@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans 'Trading Locally - Login' %}{% endblock %}
+
+{% block content %}
+<style>
+.card {
+	max-width: 20px;
+}
+.container {
+	max-width: 50%;
+}
+@media (max-width: 767px) {
+.container {
+	max-width: 100%;
+}
+}
+</style>
+
+
+<div class="card animate-on-scroll">
+    <div class="block-heading">
+            <h2 class="section-title" style="text-align: center;">{% blocktrans %}Login{% endblocktrans %}</h2>
+     </div>
+    <form method="post">
+        {% csrf_token %}
+        {% if message %}
+                <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+        <label for="username">{% trans 'Username' %}</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">{% trans 'Password' %}</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit" class="btn">{% trans 'Login' %}</button>
+        
+
+    </a>
+    </form>
+    <p>{% trans "Don't have an account?" %} <a href="{% url 'register' %}">{% trans "Register Here" %}</a>.</p>
+    <p style="text-align: center;">
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+        <img src="{% static 'assets/img/google.png' %}" alt="Google logo" style="height: 50px;">
+    </a>
+</p>
+    
+</div>
+
+{% endblock %}
+
+

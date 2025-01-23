@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% blocktrans %}Trading Locally - Verify Payment{% endblocktrans %}{% endblock %}
+{% block content %}
+<script>
+    function checkPaymentStatus() {
+        fetch("{% url 'verify_payment' order_id %}")
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = "{% url 'payment_success' %}?order_id={{ order_id }}";
+                } else if (data.status === 'failed') {
+                    window.location.href = "{% url 'payment_fail' %}";
+                } else {
+                    setTimeout(checkPaymentStatus, 5000);  // Retry after 5 seconds
+                }
+            });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        checkPaymentStatus();
+    });
+</script>
+<div class="container">
+    <div class="card animate-on-scroll">
+        <p>{% blocktrans %}Verifying your payment, please wait...{% endblocktrans %}</p>
+    </div>
+</div>
+{% endblock %}

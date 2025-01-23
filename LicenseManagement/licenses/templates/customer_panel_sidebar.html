@@ -1,0 +1,34 @@
+
+{% load i18n %}
+
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li class="{% if active_page == 'customer_panel' %}active{% endif %}">
+            <a href="{% url 'customer_panel' %}">{% blocktrans %}Dashboard{% endblocktrans %}</a>
+        </li>
+        <li class="{% if active_page == 'active_licenses' %}active{% endif %}">
+            <a href="{% url 'active_licenses' %}">{% blocktrans %}Active Licenses{% endblocktrans %}</a>
+        </li>
+        <li class="{% if active_page == 'profile_info' %}active{% endif %}">
+            <a href="{% url 'profile_info' %}">{% blocktrans %}Profile Information{% endblocktrans %}</a>
+        </li>
+        <li class="{% if active_page == 'settings' %}active{% endif %}">
+            <a href="{% url 'settings' %}">{% blocktrans %}Settings{% endblocktrans %}</a>
+        </li>
+        <li class="{% if active_page == 'performance' %}active{% endif %}">
+            <a href="{% url 'performance' %}">{% blocktrans %}Performance{% endblocktrans %}</a>
+        </li>
+        <li class="has-submenu {% if active_page == 'tickets' %}active{% endif %}">
+            <a href="#" onclick="toggleSubmenu('tickets-submenu')">{% blocktrans %}Tickets{% endblocktrans %}</a>
+            <ul id="tickets-submenu" class="submenu {% if active_page == 'list_of_tickets' %}open{% endif %}">
+                <li class="{% if active_page == 'list_of_tickets' %}active{% endif %}">
+                    <a href="{% url 'list_of_tickets' %}">{% blocktrans %}All Tickets{% endblocktrans %}</a>
+                </li>
+                <li class="{% if active_page == 'create_new_ticket' %}active{% endif %}">
+                    <a href="{% url 'create_new_ticket' %}">{% blocktrans %}Create New Ticket{% endblocktrans %}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+

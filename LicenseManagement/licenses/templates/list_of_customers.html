@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Manage Customers" %}{% endblock %}
+
+{% block content %}
+    
+    <div class="container">
+        
+
+		<div class="card animate-on-scroll">
+        <h2 class="section-title" style="text-align: center;">{% trans "List of Customers" %}</h2>
+        <div class="table-responsive">
+			<table>
+            <thead>
+                <tr>
+                    <th style="width: 60px;">{% trans "ID" %}</th>
+                    <th>{% trans "Username" %}</th>
+                    <th style="width: 35%;">{% trans "Email Address" %}</th>
+                    <th>{% trans "Broker Code" %}</th>
+                    
+                    <th>{% trans "Referrer" %}</th>
+                    <th>{% trans "Reset Limit" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                    <tr>
+                        <td>{{ customer.id }}</td>
+                        <td><a href="{% url 'customer_profile' customer.id %}">{{ customer.username }}</a></td>
+                        <td>{{ customer.email }}</td>
+                        <td>{{ customer.customerprofile.account_number }}</td>
+                        
+                        <td>{{ customer.customerprofile.referrer }}</td>
+                        <td><a href="{% url 'reset_last_update' customer.id %}">{% trans "Reset" %}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        </div>
+    </div>
+{% endblock %}

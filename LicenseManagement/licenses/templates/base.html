@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="{% if request.LANGUAGE_CODE == 'en' %}en{% else %}fa{% endif %}">
+<head>
+    {% load i18n %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Montserrat.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/vanilla-zoom.min.css' %}">
+    {% if request.LANGUAGE_CODE == 'fa' %}
+        <link rel="stylesheet" href="{% static 'styles_rtl.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% endif %}
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {% block head %}{% endblock %}
+</head>
+{% include 'header.html' %}
+<body>
+<script>
+        window.onload = function() {
+            {% if messages %}
+                {% for message in messages %}
+                    alert('{{ message|escapejs }}');
+                {% endfor %}
+            {% endif %}
+        };
+    </script>
+    
+    <div class="container">
+        <div class="row">
+			{% if user.is_authenticated %}
+				
+				<div class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+					{% include 'sidebar.html' %}
+				</div>
+				
+			{% endif %}
+			{% if user.is_authenticated %}
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+			{% else %}
+				<main>
+			{% endif %}
+				
+                <div class="content">
+                    {% block content %}{% endblock %}
+                </div>
+				</main>
+            
+     </div>       
+    </div>    
+    </div>
+<footer class="custom-footer">
+    <div class="footer-container">
+        
+        <div class="footer-column">
+            <h4>{% trans "Social Media" %}</h4>
+            <div class="social-media">
+                <a href="https://t.me/tradinglocally_support" target="_blank"><img src="{% static 'assets/img/telegram-icon.png' %}" alt="Telegram"></a>
+                <a href="https://instagram.com/trading_locally" target="_blank"><img src="{% static 'assets/img/instagram-icon.png' %}" alt="Instagram"></a>
+                
+            </div>
+        </div>
+        <div class="footer-column">
+            <h4>{% trans "Quick Links" %}</h4>
+            <ul class="footer-links">
+                <li><a href="{% url 'home' %}">{% trans "Home Page" %}</a></li>
+                <li><a href="{% url 'product_list' %}">{% trans "Products" %}</a></li>
+                <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
+                <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <li><a href="{% url 'admin_panel' %}">{% trans "Panel" %}</a></li>
+                    {% else %}
+                        <li><a href="{% url 'customer_panel' %}">{% trans "Profile" %}</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+                    <li><a href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+						{% if not user.is_superuser %}
+							{% if not user.cart.is_empty %}
+								<li><a href="{% url 'view_cart' %}">{% trans "Cart" %}</a></li>
+							{% endif %}
+						{% endif %}
+				{% endif %}
+            </ul>	
+        </div>
+        
+        <div class="footer-column">
+            <h4>{% trans "Newsletter" %}</h4>
+            <div class="newsletter-signup">
+                <p>{% trans "Subscribe to our newsletter:" %}</p>
+                <form action="{% url 'subscribe' %}" method="post">
+                    <input type="text" name="phone" placeholder="00989127654321" required>
+                    <button type="submit" class="btn">{% trans "Subscribe" %}</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <div class="footer-bottom">
+        <div class="language-switcher">
+            <form action="/set_language" method="get">
+                <select id="language-select" name="language" onchange="this.form.submit()">
+                    <option value="fa" {% if request.LANGUAGE_CODE == 'fa' %}selected{% endif %}>{% trans "فارسی" %}</option>
+                    <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                </select>
+            </form>
+        </div>
+        <span>Copyright © Trading Locally 2024</span>
+    </div>
+</footer>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentPath = window.location.pathname;
+
+            var paths = {
+                products: ['{% url "list_of_products" %}', '{% url "add_new_product" %}'],
+                messaging: ['{% url "send_public_message" %}', '{% url "send_private_message" %}', '{% url "inbox" %}', '{% url "messaging" %}'],
+                tickets: ['{% url "list_of_tickets" %}', '{% url "create_new_ticket" %}']
+            };
+
+            for (var key in paths) {
+                if (paths[key].includes(currentPath)) {
+                    var submenu = document.getElementById(key + '-submenu');
+                    if (submenu) {
+                        submenu.style.display = 'block';
+                    }
+                }
+            }
+        });
+
+        function toggleSubmenu(id) {
+            var submenu = document.getElementById(id);
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+        observer.observe(element);
+    });
+});
+    function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var priceElements = document.getElementsByClassName("formatted-price");
+    for (var i = 0; i < priceElements.length; i++) {
+        var priceElement = priceElements[i];
+        var price = priceElement.textContent;
+        priceElement.textContent = formatPrice(price);
+    }
+});
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

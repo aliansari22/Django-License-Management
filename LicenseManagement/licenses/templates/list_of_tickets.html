@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}  <!-- Load the i18n template tags -->
+
+{% block title %}Trading Locally - {% blocktrans %}List of Tickets{% endblocktrans %}{% endblock %}
+{% block content %}
+
+<div class="container">
+<h1>{% blocktrans %}List of Tickets{% endblocktrans %}</h1>
+<div class="card animate-on-scroll">
+
+<table>
+    <thead>
+        <tr>
+            <th>{% blocktrans %}Datetime{% endblocktrans %}</th>
+            <th>{% blocktrans %}Topic{% endblocktrans %}</th>
+            <th>{% blocktrans %}Summary{% endblocktrans %}</th>
+            <th>{% blocktrans %}Status{% endblocktrans %}</th>
+            <th>{% blocktrans %}More{% endblocktrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.created_at }}</td>
+            <td>{{ ticket.get_topic_display }}</td>
+            <td>{{ ticket.message|truncatewords:10 }}</td>
+            <td>{{ ticket.get_status_display }}</td>
+            <td><a href="{% url 'show_ticket_customer' ticket.id %}">{% blocktrans %}View{% endblocktrans %}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p><a href="{% url 'create_new_ticket' %}" class="btn">{% blocktrans %}New Ticket{% endblocktrans %}</a></p>
+</div>
+</div>
+{% endblock %}

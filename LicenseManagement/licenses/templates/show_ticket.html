@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block title %}{% blocktrans %}Trading Locally - Ticket Detail{% endblocktrans %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{% blocktrans %}Ticket Detail{% endblocktrans %}</h2>
+    <div class="card animate-on-scroll">
+        <p><strong>{% blocktrans %}Topic:{% endblocktrans %}</strong> {{ ticket.get_topic_display }}</p>
+        <p><strong>{% blocktrans %}Priority:{% endblocktrans %}</strong> {{ ticket.get_priority_display }}</p>
+        <p><strong>{% blocktrans %}Message:{% endblocktrans %}</strong> {{ ticket.message }}</p>
+        {% if ticket.attachments %}
+        <p><strong>{% blocktrans %}Attachments:{% endblocktrans %}</strong> <a href="{{ ticket.attachments.url }}">{% blocktrans %}Download{% endblocktrans %}</a></p>
+        {% endif %}
+        
+        <h3>{% blocktrans %}Respond to Ticket{% endblocktrans %}</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% blocktrans %}Submit{% endblocktrans %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

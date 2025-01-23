@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Trading Locally - Manage Requests" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card animate-on-scroll">
+        <h2 class="section-title" style="text-align: center;">{% trans "List of Requests" %}</h2>
+        <form method="post" action="{% url 'remove_selected_requests' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">{% trans "Remove Selected" %}</button>
+            <p></p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;"><input type="checkbox" id="select-all"></th> <!-- "Select All" checkbox -->
+                            <th>{% trans "Username" %}</th>
+                            <th>{% trans "Product Name" %}</th>
+                            <th>{% trans "Account Number" %}</th>
+                            <th>{% trans "Upload Executable" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in requests %}
+                            <tr>
+                                <td>
+                                    <input 
+                                        name="selected_requests" 
+                                        type="checkbox" 
+                                        class="request-checkbox" 
+                                        value="{{ request.id }}">
+                                </td>
+                                <td>{{ request.customer.username }}</td>
+                                <td>{{ request.product.name }}</td>
+                                <td>{{ request.account_number }}</td>
+                                <td>
+                                    <form method="POST" action="{% url 'list_of_requests' %}" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        {% if form.errors %}
+                                            <div class="form-errors">
+                                                {% for field in form %}
+                                                    {% if field.errors %}
+                                                        <div class="field-errors">
+                                                            <strong>{{ field.label }}</strong>: {{ field.errors }}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <input type="hidden" name="request_id" value="{{ request.id }}">
+                                        <input type="hidden" name="request_user" value="{{ request.customer.username }}">
+                                        <button type="submit">{% trans "Save" %}</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const requestCheckboxes = document.querySelectorAll('.request-checkbox');
+
+        selectAllCheckbox.addEventListener('change', function() {
+            requestCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+    });
+</script>
+{% endblock %}

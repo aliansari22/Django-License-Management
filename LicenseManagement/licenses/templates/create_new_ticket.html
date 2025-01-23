@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Trading Locally - Create New Ticket{% endblocktrans %}{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="card animate-on-scroll">
+        <h2 class="section-title" style="text-align: center;">{% blocktrans %}Create New Ticket{% endblocktrans %}</h2>
+        <form method="post" enctype="multipart/form-data">
+            {{ form.media }}
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.topic.id_for_label }}">{% blocktrans %}Topic{% endblocktrans %}</label>
+                {{ form.topic }}
+                {% if form.topic.errors %}
+                    <div class="error">{{ form.topic.errors }}</div>
+                {% endif %}
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label for="{{ form.priority.id_for_label }}">{% blocktrans %}Priority{% endblocktrans %}</label>
+                {{ form.priority }}
+                {% if form.priority.errors %}
+                    <div class="error">{{ form.priority.errors }}</div>
+                {% endif %}
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}">{% blocktrans %}Message{% endblocktrans %}</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <div class="error">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label for="{{ form.attachments.id_for_label }}">{% blocktrans %}Attachments{% endblocktrans %}</label>
+                {{ form.attachments }}
+                {% if form.attachments.errors %}
+                    <div class="error">{{ form.attachments.errors }}</div>
+                {% endif %}
+            </div>
+            <p></p>
+            <button type="submit" class="btn">{% blocktrans %}Submit{% endblocktrans %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

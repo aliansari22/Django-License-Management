@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load i18n %}  {# Ensure you load the i18n tag library #}
+
+{% block title %}{% trans "Trading Locally - Contact Us" %}{% endblock %}  {# Wrap the title in {% trans %} tag #}
+
+{% block content %}
+<div class="card animate-on-scroll">
+    <div class="block-heading">
+            <h2 class="section-title" style="text-align: center;">{% blocktrans %}Contact Us{% endblocktrans %}</h2>
+     </div>
+    <p><a href="https://t.me/tradinglocally_support">{% trans "Telegram" %}</a></p>  {# Wrap each translatable text in {% trans %} tag #}
+    <p><a href="mailto:tradingloacally@gmail.com">{% trans "E-Mail" %}</a></p>  {# Wrap each translatable text in {% trans %} tag #}
+</div>
+{% endblock %}

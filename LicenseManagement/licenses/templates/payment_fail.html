@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Trading Locally - Payment Failed{% endblocktrans %}{% endblock %}
+
+{% block content %}
+
+<div class="card animate-on-scroll">
+<div class="block-heading">
+            <h2 class="section-title" style="text-align: center;">{% blocktrans %}Payment Failed{% endblocktrans %}</h2>
+        </div>
+  <p>{% blocktrans %}There was an issue processing your payment. Please try again.{% endblocktrans %}</p>
+  
+  
+</div>
+{% endblock %}
+
+

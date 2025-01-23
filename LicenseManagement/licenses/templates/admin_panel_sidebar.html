@@ -1,0 +1,73 @@
+{% load i18n %}
+
+<nav class="sidebar" id="sidebarMenu">
+    <div class="sidebar-sticky">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a class="sidebar-link {% if active_page == 'admin_panel' %}active{% endif %}" href="{% url 'admin_panel' %}">
+                    {% trans 'Dashboard' %}
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link submenu-toggle" href="#" onclick="toggleSubmenu('products-submenu')">
+                    {% trans 'Products' %}
+                </a>
+                <ul id="products-submenu" class="submenu">
+                    <li class="submenu-item">
+                        <a class="submenu-link {% if active_page == 'list_of_products' %}active{% endif %}" href="{% url 'list_of_products' %}">
+                            {% trans 'List of Products' %}
+                        </a>
+                    </li>
+                    <li class="submenu-item">
+                        <a class="submenu-link {% if active_page == 'add_new_product' %}active{% endif %}" href="{% url 'add_new_product' %}">
+                            {% trans 'Add New Product' %}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link {% if active_page == 'list_of_customers' %}active{% endif %}" href="{% url 'list_of_customers' %}">
+                    {% trans 'Customers' %}
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link {% if active_page == 'list_of_requests' %}active{% endif %}" href="{% url 'list_of_requests' %}">
+                    {% trans 'Requests' %}
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link submenu-toggle" href="#" onclick="toggleSubmenu('messaging-submenu')">
+                    {% trans 'Messaging' %}
+                </a>
+                <ul id="messaging-submenu" class="submenu">
+                    <li class="submenu-item">
+                        <a class="submenu-link {% if active_page == 'send_public_message' %}active{% endif %}" href="{% url 'send_public_message' %}">
+                            {% trans 'Send Public Message' %}
+                        </a>
+                    </li>
+                    <li class="submenu-item">
+                        <a class="submenu-link {% if active_page == 'send_private_message' %}active{% endif %}" href="{% url 'send_private_message' %}">
+                            {% trans 'Send Private Message' %}
+                        </a>
+                    </li>
+                    <li class="submenu-item">
+                        <a class="submenu-link {% if active_page == 'inbox' %}active{% endif %}" href="{% url 'inbox' %}">
+                            {% trans 'Inbox' %}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link {% if active_page == 'ticket_management' %}active{% endif %}" href="{% url 'ticket_management' %}">
+                    {% trans 'Ticket Management' %}
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link {% if active_page == 'shop' %}active{% endif %}" href="{% url 'shop' %}">
+                    {% trans 'Shop' %}
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load i18n %}  <!-- Add i18n tag after importing base.html -->
+
+{% block title %}{% trans "Trading Locally - List of Products" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    
+    <div class="card animate-on-scroll">
+    <h2 class="section-title" style="text-align: center;">{% trans "List of Products" %}</h2>
+        <form method="post" action="{% url 'remove_selected_products' %}">
+            {% csrf_token %}
+            <a href="{% url 'add_new_product' %}" class="btn btn-primary">{% trans "Add New Product" %}</a>
+            <button type="submit" class="btn btn-danger">{% trans "Remove Selected" %}</button>
+            <p></p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;"><input type="checkbox" id="select-all"></th>  <!-- "Select All" checkbox -->
+                            <th>{% trans "Product Name" %}</th>
+                            <th>{% trans "Price" %}</th>
+                            <th>{% trans "Number of Sales" %}</th>
+                            <th>{% trans "Number of Active Users" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                        <tr>
+                            <td>
+                                <input 
+                                    name="selected_products" 
+                                    type="checkbox" 
+                                    class="product-checkbox" 
+                                    value="{{ product.id }}">
+                            </td>
+                            <td><a href="{% url 'edit_product' product.id %}">{{ product.name }}</a></td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.number_of_sales }}</td>
+                            <td>{{ product.number_of_active_users }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block scripts %} 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const productCheckboxes = document.querySelectorAll('.product-checkbox');
+
+        selectAllCheckbox.addEventListener('change', function() {
+            productCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+    });
+    </script>
+{% endblock %}

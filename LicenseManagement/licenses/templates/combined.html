@@ -1,0 +1,131 @@
+
+{% load i18n %}
+<header>
+    <div class="container">
+        <div class="language-switcher">    
+            <form action="/set_language" method="get">
+                <select id="language-select" name="language" onchange="this.form.submit()">
+                    <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                    <option value="fa" {% if request.LANGUAGE_CODE == 'fa' %}selected{% endif %}>{% trans "فارسی" %}</option>
+                </select>
+            </form>
+        </div>
+        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+            <div class="container">
+                <a class="navbar-brand logo" href="#">Trading Locally</a>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+                    <span class="visually-hidden">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">{% blocktrans %}Home Page{% endblocktrans %}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'product_list' %}">{% blocktrans %}Products{% endblocktrans %}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">{% blocktrans %}About{% endblocktrans %}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">{% blocktrans %}Contact{% endblocktrans %}</a></li>
+                        {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {% blocktrans %}Panel{% endblocktrans %}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'profile_info' %}active{% endif %}" href="{% url 'profile_info' %}">
+                                                {% blocktrans %}Profile Information{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'settings' %}active{% endif %}" href="{% url 'settings' %}">
+                                                {% blocktrans %}Settings{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'performance' %}active{% endif %}" href="{% url 'performance' %}">
+                                                {% blocktrans %}Performance{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item submenu-toggle" href="#" onclick="toggleSubmenu('tickets-submenu')">
+                                                {% blocktrans %}Tickets{% endblocktrans %}
+                                            </a>
+                                            <ul id="tickets-submenu" class="submenu dropdown-submenu {% if active_page == 'list_of_tickets' %}open{% endif %}">
+                                                <li>
+                                                    <a class="dropdown-item {% if active_page == 'list_of_tickets' %}active{% endif %}" href="{% url 'list_of_tickets' %}">
+                                                        {% blocktrans %}All Tickets{% endblocktrans %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item {% if active_page == 'create_new_ticket' %}active{% endif %}" href="{% url 'create_new_ticket' %}">
+                                                        {% blocktrans %}Create New Ticket{% endblocktrans %}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {% blocktrans %}Profile{% endblocktrans %}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'profile_info' %}active{% endif %}" href="{% url 'profile_info' %}">
+                                                {% blocktrans %}Profile Information{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'settings' %}active{% endif %}" href="{% url 'settings' %}">
+                                                {% blocktrans %}Settings{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'performance' %}active{% endif %}" href="{% url 'performance' %}">
+                                                {% blocktrans %}Performance{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item submenu-toggle" href="#" onclick="toggleSubmenu('tickets-submenu')">
+                                                {% blocktrans %}Tickets{% endblocktrans %}
+                                            </a>
+                                            <ul id="tickets-submenu" class="submenu dropdown-submenu {% if active_page == 'list_of_tickets' %}open{% endif %}">
+                                                <li>
+                                                    <a class="dropdown-item {% if active_page == 'list_of_tickets' %}active{% endif %}" href="{% url 'list_of_tickets' %}">
+                                                        {% blocktrans %}All Tickets{% endblocktrans %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item {% if active_page == 'create_new_ticket' %}active{% endif %}" href="{% url 'create_new_ticket' %}">
+                                                        {% blocktrans %}Create New Ticket{% endblocktrans %}
+                                                    </a>
+                                                </li>
+                                        <li>
+                                            <a class="dropdown-item {% if active_page == 'profile_info' %}active{% endif %}" href="{% url 'logout' %}">
+                                                {% blocktrans %}Logout{% endblocktrans %}
+                                            </a>
+                                        </li>
+                                        
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<script>
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+}
+
+document.getElementById('sidebar-toggler').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('d-none');
+});
+</script>

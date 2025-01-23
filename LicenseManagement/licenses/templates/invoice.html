@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Invoice{% endblock %}
+
+{% block content %}
+<h2>Invoice</h2>
+<ul>
+    {% for item in cart.items.all %}
+        <li>{{ item.product.name }} ({{ item.quantity }}) - {{ item.get_total_price }}</li>
+    {% endfor %}
+</ul>
+<p>Total: {{ cart.get_total_price }}</p>
+{% endblock %}

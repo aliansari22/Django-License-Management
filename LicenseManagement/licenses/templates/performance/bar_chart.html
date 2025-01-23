@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}Trading Locally - {% trans "Bar Chart" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{% trans "Bar Chart" %}</h1>
+    <div class="card animate-on-scroll">
+        <div class="dropdown-container">
+            <div class="dropdown-switcher">
+                <label for="dropdown2">{% trans "Y Axis:" %}</label>
+                <select id="dropdown2" onchange="updateChart()">
+                    {% for variable in y_axis_variables %}
+                    <option value="{{ variable }}">{{ variable }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        
+        <div id="bar-chart"></div>
+    </div>
+</div>
+
+<script>
+    const data = {{ data|safe }};
+    const xVariable = "{{ x_axis_variable }}"; // Directly use the X axis variable
+
+    const yAxisMapping = {
+        'Hourly Win Rates': 'hourly_win_rates',
+        'Hourly PNL': 'hourly_pnl',
+        'Hourly Number of Trades': 'hourly_numbers',
+        'Hourly Volume': 'hourly_volume',
+        'Weekday Win Rates': 'weekday_win_rates',
+        'Week Day PNL': 'weekday_pnl',
+        'Week Day Number of Trades': 'weekday_numbers',
+        'Week Day Volume': 'weekday_volume'
+    };
+
+    function updateChart() {
+        const var2 = document.getElementById('dropdown2').value;
+
+        const x = data[xVariable.toLowerCase()]; // Use lowercase keys to match the data dictionary
+        const y = data[yAxisMapping[var2]];
+
+        const chartData = {};
+        x.forEach((key, index) => {
+            chartData[key] = y[index];
+        });
+
+        plot_vertical_bar_chart(chartData, 'bar-chart', xVariable, var2);
+    }
+
+    function plot_vertical_bar_chart(data, divId, xAxisName, yAxisName) {
+        const xValues = Object.keys(data);
+        const yValues = Object.values(data);
+
+        // Define colors for positive and negative values
+        const colors = yValues.map(value => value < 0 ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)');
+        const lineColors = yValues.map(value => value < 0 ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)');
+
+        var trace = {
+            x: xValues,
+            y: yValues,
+            type: 'bar',
+            marker: {
+                color: colors,
+                line: {
+                    color: lineColors,
+                    width: 1.5
+                }
+            }
+        };
+
+        var layout = {
+            xaxis: {
+                title: xAxisName,
+            },
+            yaxis: {
+                title: yAxisName,
+            },
+            margin: { t: 20, r: 30, b: 40, l: 40 }
+        };
+
+        Plotly.newPlot(divId, [trace], layout);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateChart(); // Initialize chart with default selection on page load
+    });
+</script>
+
+<style>
+    .dropdown-container {
+        display: flex;
+        justify-content: center; /* Adjust spacing as needed */
+        align-items: center; /* Align items vertically */
+    }
+
+    .dropdown-item {
+        margin: 10px; /* Adjust spacing between dropdowns */
+    }
+</style>
+
+{% endblock %}

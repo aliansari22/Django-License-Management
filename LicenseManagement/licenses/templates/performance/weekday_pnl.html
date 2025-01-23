@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Trading Locally - Week Day PNL{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Week Day PNL</h1>
+
+<div id="vertical-bar-chart" style="width:800px;height:500px;"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const data = {{ weekday_pnl|safe }};
+        plot_vertical_bar_chart(data, 'vertical-bar-chart', "Week Day", "Win Rate");
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% block title %}Trading Locally - {% blocktrans %}Display Message{% endblocktrans %}{% endblock %}
+{% block content %}
+    
+<div class="container">
+<div class="card animate-on-scroll">
+    <h2 class="section-title" style="text-align: center;">{% blocktrans %}Message from{% endblocktrans %} {{ message.sender.username }}</h2>
+    <p>{{ message.message }}</p>
+    <a href="{% url 'inbox' %}" class="btn btn-secondary">{% blocktrans %}Back to Inbox{% endblocktrans %}</a>
+</div>
+</div>
+{% endblock %}

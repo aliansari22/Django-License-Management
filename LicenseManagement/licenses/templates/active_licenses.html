@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% load i18n %}  {# Add i18n tag after importing base.html #}
+
+{% block title %}{% trans "Trading Locally - Active Licenses" %}{% endblock %}
+
+{% block content %}
+    
+    <div class="container">
+		<div class="card animate-on-scroll">
+        <h2 class="section-title" style="text-align: center;">{% trans "Active Licenses" %}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "Product Name" %}</th>
+                    <th>{% trans "Request Compilation" %}</th>
+                    <th>{% trans "Requested" %}</th>
+                    <th>{% trans "Download Link" %}</th>
+                    <th>{% trans "Expiry Date" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for license in active_licenses %}
+				<tr>
+					<td>{{ license.name }}</td>
+					<td><a href="{% url 'request_compilation' license.product_id %}">{% trans "Request Compilation" %}</a></td>
+					<td>
+						{% if license.not_requested_yet %}
+							{% trans "Yes" %}
+						{% else %}
+							{% trans "No" %}
+						{% endif %}
+					</td>
+					<td>
+						{% if license.download_link %}
+							<a href="{{ license.download_link }}">{% trans "Download" %}</a>
+						{% else %}
+							{% trans "Not Available" %}
+						{% endif %}
+					</td>
+					<td>{{ license.expiry_date }}</td>
+				</tr>
+			{% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+{% endblock %}
